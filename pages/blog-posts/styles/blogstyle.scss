@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
+@media screen and (max-width: 1002px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  body {
+    // background-color: rgb(240, 205, 205);
+    margin: 0px;
+
+    #nav {
+      width: 100%;
+      a {
+        font-size: 12px;
+        margin: 0;
+      }
+      margin: 0;
+    }
+    .code {
+      height: fit-content;
+      width: fit-content;
+    }
+
+    #contents {
+      #part1 {
+        width: 80%;
+        img {
+          display: none;
+        }
+      }
+      #part2 {
+        #code-exp {
+          p {
+            margin: 0px;
+            margin-top: 10px;
+            width: 100%;
+          }
+          .code {
+            width: 80%;
+          }
+        }
+        #second-layer,
+        #activation {
+          width: 80%;
+        }
+      }
+      #part3 {
+        div {
+          p {
+            margin: 0px;
+            width: 100%;
+          }
+          #propogate {
+            width: 80%;
+          }
+        }
+        .code {
+          width: 80%;
+        }
+      }
+      .parts {
+        width: 80%;
+        div {
+          width: 100%;
+          display: block;
+        }
+        font-size: 15px;
+        img {
+          margin: 0px;
+        }
+      }
+      #intro {
+        width: 80%;
+        div {
+          width: 100%;
+        }
+        text-align: center;
+        display: block;
+        img {
+          display: none;
+        }
+      }
+      #linearalg {
+        text-align: center;
+        img {
+          margin: 0;
+          width: 300px;
+        }
+      }
+      div {
+        display: block;
+      }
+    }
+  }
+}
+body {
+  font-family: "Comfortaa", cursive;
+  margin: 0px;
+}
+
+#contents {
+  h1 {
+    text-align: center;
+    margin: auto;
+    width: fit-content;
+    padding: 20px;
+    border: 2px solid rgb(0, 0, 0);
+    text-shadow: 2px 2px 0px rgb(196, 118, 3);
+  }
+  h2 {
+    margin-top: 100px;
+    text-align: center;
+  }
+  #intro {
+    outline: 2px solid black;
+    padding: 20px;
+    margin: auto;
+    margin-top: 20px;
+    width: 90%;
+    display: flex;
+    div {
+      h3 {
+        text-decoration: underline;
+      }
+      width: 600px;
+      line-height: 2.5;
+      color: rgb(0, 0, 0);
+    }
+    background-color: rgb(255, 255, 255);
+    img {
+      height: 400px;
+      filter: brightness(1.1);
+    }
+  }
+
+  .parts {
+    border: 2px solid black;
+    padding: 20px;
+    margin: auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    width: 90%;
+    line-height: 2.5;
+    h3 {
+      text-decoration: underline;
+      color: rgb(29, 193, 196);
+      // text-shadow: 1px 2px rgb(238, 118, 118);
+    }
+    div {
+      display: flex;
+      img {
+        height: 200px;
+        margin-left: 100px;
+      }
+    }
+  }
+  .code {
+    font-family: "Courier New", Courier, monospace;
+    background-color: rgb(255, 209, 209);
+    color: rgb(37, 15, 15);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 10px 10px rgb(0, 0, 0);
+  }
+
+  .math {
+    width: fit-content;
+    font-family: "Courier New", Courier, monospace;
+    background-color: rgb(209, 233, 255);
+    color: rgb(24, 10, 10);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 10px 10px rgb(0, 0, 0);
+  }
+
+  #linearalg {
+    h3 {
+      color: black;
+    }
+    img:hover {
+      opacity: 0.5;
+    }
+  }
+
+  #part1 {
+    margin-top: 50px;
+    width: 90%;
+    img {
+      height: 300px;
+    }
+  }
+  #part2 {
+    #code-exp {
+      p {
+        width: 60%;
+        margin-left: 100px;
+      }
+    }
+    #activation {
+      margin: auto;
+      width: 40%;
+    }
+    #second-layer {
+      margin: auto;
+      width: 40%;
+    }
+  }
+
+  #part3 {
+    p {
+      width: 40%;
+      margin-right: 100px;
+    }
+    #propogate {
+      width: 40%;
+    }
+  }
+  #complete {
+    margin: auto;
+    width: 55%;
+  }
+}
+
+.back {
+  width: fit-content;
+  font-size: 200%;
+  margin: 10px 10px;
+}
+
+.back:hover {
+  cursor: pointer;
+}
+
+.back::after {
+  content: "";
+  display: block;
+  background-color: black;
+  width: 0;
+  transition: 300ms ease-in-out;
+  height: 2px;
+}
+
+.back:hover::after {
+  width: 100%;
+}

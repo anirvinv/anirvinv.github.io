@@ -1,0 +1,52 @@
+@import "globals";
+@import "variables";
+@import "navbar2";
+
+.container {
+  h3 {
+    text-align: center;
+    font-weight: 400;
+    font-size: 30px;
+  }
+  .blog {
+    width: 50%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: auto;
+    background-color: $mellow_blue;
+    transition: 0.3s ease-in-out;
+    a {
+      width: 100%;
+      text-decoration: none;
+      color: rgb(0, 0, 0);
+      padding: 1rem;
+      font-size: 1.3rem;
+    }
+    margin-top: 0.5rem;
+    outline: 2px solid black;
+  }
+  .blog:hover {
+    background: $mellow_red;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  html,
+  body {
+    margin: 0px;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  .container {
+    margin-top: 30px;
+    h3 {
+      font-size: 15px;
+    }
+    .blog {
+      a {
+        font-size: 13px;
+      }
+    }
+  }
+}

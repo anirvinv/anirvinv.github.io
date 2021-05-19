@@ -1,0 +1,37 @@
+.container {
+  .navbar,
+  .navbar2 {
+    display: flex;
+    align-items: center;
+    font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode";
+    grid-row: 1;
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    a::after {
+      display: block;
+      content: "";
+      height: 2px;
+      width: 0%;
+      background-color: black;
+      transition: 300ms ease-in-out;
+    }
+    a:hover::after {
+      width: 100%;
+    }
+  }
+  .navbar {
+    a {
+      margin-left: 25%;
+    }
+  }
+
+  .navbar2 {
+    grid-column: 3;
+    justify-content: center;
+    a {
+      margin-right: 5.51041666667%;
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Anirvin's Website</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <a class="" href="">Home</a>
+      </div>
+      <div class="navbar2">
+        <a class="navbar__right" href="pages/projects.html">Projects</a>
+        <a class="navbar__right" href="pages/contact.html">Contact</a>
+        <a class="navbar__right" href="pages/blog.html">Blog</a>
+      </div>
+
+      <div data-aos="fade-up" data-aos-duration="900" id="red_square"></div>
+
+      <div class="title">
+        <h1 data-aos="fade-up" class="title__h1">Hi, I'm Anirvin!</h1>
+      </div>
+      <div data-aos="fade-down" data-aos-duration="900" id="blue_square"></div>
+
+      <div class="aboutme flex type"></div>
+    </div>
+
+    <script>
+      AOS.init();
+
+      var typed = new Typed(".type", {
+        // Waits 1000ms after typing "First"
+        strings: [
+          ">> ^300I like coding and ^500 ...^500eating.",
+          ">> I like coding and ^500 making websites.^700",
+        ],
+        typeSpeed: 40,
+        smartbackspace: true,
+        loop: true,
+        loopCount: Infinity,
+        showCursor: false,
+      });
+    </script>
+  </body>
+</html>

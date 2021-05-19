@@ -1,0 +1,12 @@
+#contents {
+  h1 {
+    text-shadow: 2px 2px 0px blue;
+  }
+}
+
+.parts {
+  &__graddesc {
+    display: block;
+    background-color: rgb(255, 255, 255);
+  }
+}

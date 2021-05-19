@@ -1,0 +1,18 @@
+@import "globals";
+@import "variables";
+@import "navbar2";
+
+.container {
+  height: 100vh;
+  width: 100%;
+
+  form {
+    * {
+      font-family: Corbel;
+    }
+    input,
+    textarea {
+      outline: none;
+    }
+  }
+}

@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap");
+
+@media screen and (max-width: 1002px) {
+  html,
+  body {
+    overflow-x: hidden;
+
+    #contents {
+      #convolve h5 {
+        margin: 0px;
+      }
+    }
+  }
+}
+#contents {
+  h1 {
+    text-shadow: 2px 2px 0px red;
+  }
+  #intro {
+    img {
+      margin: auto;
+      height: 200px;
+    }
+  }
+
+  #filter {
+    margin: 20px;
+  }
+
+  td {
+    height: 50px;
+    width: 50px;
+    outline: 2px solid transparent;
+    border-radius: 5px;
+    text-align: center;
+  }
+  #image {
+    td {
+      background-color: rgb(89, 241, 135);
+    }
+  }
+  #filter {
+    td {
+      background-color: rgb(248, 138, 138);
+    }
+  }
+  #convolve {
+    h5 {
+      margin: 10px;
+    }
+  }
+
+  #featuremap {
+    td {
+      border: 2px solid yellow;
+    }
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+  .code {
+    font-family: "Courier New", Courier, monospace;
+    background-color: rgb(255, 209, 209);
+    color: rgb(37, 15, 15);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: 10px 10px rgb(0, 0, 0);
+    width: fit-content;
+    margin: auto;
+  }
+  #button {
+    height: 60px;
+    width: 140px;
+    button {
+      border-radius: 10px;
+      outline: none;
+      background-color: white;
+    }
+    button:hover {
+      cursor: pointer;
+      background-color: rgb(227, 252, 168);
+    }
+    margin: auto;
+  }
+  #firstbox {
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    width: fit-content;
+  }
+  .rgb-result {
+    td {
+      background-color: rgb(255, 245, 103);
+      opacity: 0.7;
+      outline: transparent;
+      border: 2px solid yellow;
+      border-radius: 10px;
+      box-shadow: 8px 8px 0px blue, 16px 16px 0px green;
+    }
+  }
+  .rgb-filter {
+    td {
+      opacity: 0.9;
+      background-color: rgb(247, 90, 90);
+      box-shadow: 8px 8px 0px rgb(95, 157, 252), 16px 16px 0px rgb(0, 255, 106);
+    }
+  }
+  .rgb-image {
+    td {
+      opacity: 0.9;
+      background-color: red;
+      outline: transparent;
+      border-radius: 10px;
+      box-shadow: 8px 8px 0px blue, 16px 16px 0px green;
+    }
+  }
+  #multichannel {
+    h5 {
+      margin-left: 40px;
+    }
+    .rgb-result {
+      td {
+        background-color: yellow;
+        box-shadow: 0px 0px 0px;
+      }
+    }
+  }
+
+  #multifilter {
+    .vertical-align {
+      display: block;
+      margin-left: 100px;
+      table {
+        margin-bottom: 10px;
+        td {
+          opacity: 0.9;
+          width: 40px;
+          height: 40px;
+        }
+      }
+    }
+  }
+  #multifilter {
+    .rgb-result {
+      td {
+        background-color: yellow;
+        box-shadow: 8px 8px 0px lightcoral;
+      }
+    }
+    .rgb-image {
+      td {
+        opacity: 1;
+      }
+    }
+  }
+}

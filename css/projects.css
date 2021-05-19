@@ -1,0 +1,219 @@
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Corbel;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a::after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 0%;
+  background-color: black;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header h1 {
+  font-weight: 100;
+  font-size: 6rem;
+  width: 43.48958333333%;
+}
+
+.header .navbar {
+  width: 43.48958333333%;
+}
+
+@media screen and (max-width: 800px) {
+  html,
+  body {
+    margin: 0px;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  .header {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .header h1 {
+    font-size: 20px;
+  }
+  .header a {
+    margin: 2%;
+  }
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+}
+
+.container__project, .container__description {
+  width: 43.48958333333%;
+  height: 65.462962962962%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 50px;
+  overflow: hidden;
+  outline: 4px solid black;
+}
+
+.container__project {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #ff6565;
+  margin-bottom: 11.57407%;
+}
+
+.container__project img {
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+
+.container__project img:hover {
+  cursor: pointer;
+  -webkit-filter: opacity(0.6);
+          filter: opacity(0.6);
+}
+
+.container__project__image-title img {
+  width: 100%;
+  height: auto;
+  outline: 4px solid black;
+}
+
+.container__project__image-title h3 {
+  font-family: "Courier New", Courier, monospace;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 35px;
+  font-weight: 200;
+  margin-bottom: 30px;
+}
+
+.container__project__image-title h3::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 2px;
+  background-color: black;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.container__project:hover .container__project__image-title h3::after {
+  width: 100%;
+}
+
+.container__description {
+  background-color: #73d9ee;
+  margin-top: 11.57407%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  line-height: 3;
+  font-size: 20px;
+  color: black;
+}
+
+@media screen and (max-width: 800px) {
+  html,
+  body {
+    margin: 0px;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  .container {
+    margin-top: 30px;
+    display: block;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
+  }
+  .container__project {
+    height: 300px;
+    width: 90%;
+  }
+  .container__project img {
+    width: 100%;
+  }
+  .container * {
+    margin: auto;
+    padding: 0;
+  }
+  .container__description {
+    padding: 20px;
+    width: 90%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+  }
+  .container__project::after {
+    display: none;
+  }
+  .container__semicircle {
+    display: none;
+  }
+}
+/*# sourceMappingURL=projects.css.map */

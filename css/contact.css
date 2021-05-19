@@ -1,0 +1,110 @@
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Corbel;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a::after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 0%;
+  background-color: black;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header h1 {
+  font-weight: 100;
+  font-size: 6rem;
+  width: 43.48958333333%;
+}
+
+.header .navbar {
+  width: 43.48958333333%;
+}
+
+@media screen and (max-width: 800px) {
+  html,
+  body {
+    margin: 0px;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  .header {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .header h1 {
+    font-size: 20px;
+  }
+  .header a {
+    margin: 2%;
+  }
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+}
+
+.container form * {
+  font-family: Corbel;
+}
+
+.container form input,
+.container form textarea {
+  outline: none;
+}
+/*# sourceMappingURL=contact.css.map */

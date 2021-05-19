@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="../css/projects.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="header flex">
+      <h1 class="title">Projects</h1>
+
+      <div class="navbar">
+        <a href="../index.html">Home</a>
+        <a href="">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog.html">Blog</a>
+      </div>
+    </div>
+
+    <div class="container flex">
+      <div data-aos="fade-up" class="container__project">
+        <div class="container__project__image-title">
+          <h3>>> ML From Scratch</h3>
+          <img
+            onclick="location.href='https://github.com/anirvinv/MLAlgosFromScratch'"
+            src="https://media.giphy.com/media/2mP8jJXDVqPlfCdkgE/giphy.gif"
+            alt=""
+          />
+        </div>
+      </div>
+      <div data-aos="fade-down" class="container__description">
+        Machine learning algorithms implemented using only numpy. Includes an
+        MNIST classification neural network, a logistic regression class, and a
+        linear regression class.
+      </div>
+    </div>
+    <div class="container flex">
+      <div data-aos="fade-up" class="container__project">
+        <div class="container__project__image-title">
+          <h3>>> Neural Text</h3>
+          <img
+            onclick="location.href='https://github.com/anirvinv/NeuralText'"
+            src="https://media.giphy.com/media/k8xkvnBTfJbFfiGuqt/giphy.gif"
+            alt=""
+          />
+        </div>
+      </div>
+      <div data-aos="fade-down" class="container__description">
+        An application that recognizes digits 0 - 9. The neural network was
+        created using the Tensorflow module and trained on the MNIST dataset.
+        Using the pygame module, this application allows users to draw a digit
+        on a canvas the network makes a prediction.
+      </div>
+    </div>
+    <div class="container flex">
+      <div data-aos="fade-up" class="container__project">
+        <div class="container__project__image-title">
+          <h3>>> Todo App</h3>
+          <img
+            onclick="location.href='https://github.com/anirvinv/todoapp'"
+            src="../images/todoappgif.gif"
+            alt="todoapp"
+          />
+        </div>
+      </div>
+      <div data-aos="fade-down" class="container__description">
+        A Task List developed with the web framework, Django. It supports user
+        authentication, and has a simple user interface to handle the addition
+        and removal of tasks.
+      </div>
+    </div>
+
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>

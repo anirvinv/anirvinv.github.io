@@ -1,0 +1,151 @@
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Corbel;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navbar a {
+  margin-left: 1rem;
+  text-decoration: none;
+  color: black;
+}
+
+.navbar a::after {
+  display: block;
+  content: "";
+  height: 2px;
+  width: 0%;
+  background-color: black;
+  -webkit-transition: 300ms ease-in-out;
+  transition: 300ms ease-in-out;
+}
+
+.navbar a:hover::after {
+  width: 100%;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.header h1 {
+  font-weight: 100;
+  font-size: 6rem;
+  width: 43.48958333333%;
+}
+
+.header .navbar {
+  width: 43.48958333333%;
+}
+
+@media screen and (max-width: 800px) {
+  html,
+  body {
+    margin: 0px;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  .header {
+    width: 100%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .header h1 {
+    font-size: 20px;
+  }
+  .header a {
+    margin: 2%;
+  }
+}
+
+.container h3 {
+  text-align: center;
+  font-weight: 400;
+  font-size: 30px;
+}
+
+.container .blog {
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  background-color: #73d9ee;
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+  margin-top: 0.5rem;
+  outline: 2px solid black;
+}
+
+.container .blog a {
+  width: 100%;
+  text-decoration: none;
+  color: black;
+  padding: 1rem;
+  font-size: 1.3rem;
+}
+
+.container .blog:hover {
+  background: #ff6565;
+}
+
+@media screen and (max-width: 800px) {
+  html,
+  body {
+    margin: 0px;
+    padding: 20px;
+    overflow-x: hidden;
+  }
+  .container {
+    margin-top: 30px;
+  }
+  .container h3 {
+    font-size: 15px;
+  }
+  .container .blog a {
+    font-size: 13px;
+  }
+}
+/*# sourceMappingURL=blog.css.map */
