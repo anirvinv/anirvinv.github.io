@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAAA,AACE,SADO,CACP,EAAE,CAAC;EACD,WAAW,EAAE,gBAAgB;CAC9B;;AAIA,AAAD,gBAAW,CAAC;EACV,OAAO,EAAE,KAAK;EACd,gBAAgB,EAAE,KAAkB;CACrC",
-    "sources": [
-        "blog3style.scss"
-    ],
-    "names": [],
-    "file": "blog3style.css"
-}
