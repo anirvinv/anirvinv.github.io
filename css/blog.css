@@ -94,6 +94,11 @@ body {
   }
 }
 
+.container {
+  position: relative;
+  height: 100vh;
+}
+
 .container h3 {
   text-align: center;
   font-weight: 400;

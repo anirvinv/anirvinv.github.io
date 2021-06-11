@@ -1,200 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/blogstyle.css" />
-    <link rel="stylesheet" href="styles/blog3style.css" />
-    <script src="../js/main.js"></script>
-    <script src="scripts/blog3script.js"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script
-      id="MathJax-script"
-      async
-      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
-    ></script>
-    <title>Back Propogation</title>
-  </head>
-  <body>
-    <div class="back" onclick="location.href='../blog.html' "><< Go Back</div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles/blogstyle.css" />
+		<link rel="stylesheet" href="styles/blog3style.css" />
+		<script src="../js/main.js"></script>
+		<script src="scripts/blog3script.js"></script>
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script
+			id="MathJax-script"
+			async
+			src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+		></script>
+		<title>Back Propogation</title>
+	</head>
+	<body>
+		<div class="back" onclick="location.href='../blog.html' "><< Go Back</div>
 
-    <div class="parts" id="contents">
-      <h1>Back Propogation</h1>
-      <div id="intro">
-        <div>
-          <h3>"Learning"</h3>
-          The "learning" part of machine learning is really backpropagation.
-          What is backpropagation? Remember the weights that we initialized to
-          random values the <a href="./blogpost1.html">forward pass blog</a> ?
-          Back prop is the process of finding the correct weights so that the
-          error or cost function reaches a local minimum.
-        </div>
-      </div>
+		<div class="parts" id="contents">
+			<h1>Back Propogation</h1>
+			<div id="intro">
+				<div>
+					<h3>"Learning"</h3>
+					The "learning" part of machine learning is really backpropagation.
+					What is backpropagation? Remember the weights that we initialized to
+					random values the <a href="./blogpost1.html">forward pass blog</a> ?
+					Back prop is the process of finding the correct weights so that the
+					error or cost function reaches a local minimum.
+				</div>
+			</div>
 
-      <div class="parts">
-        <h3>Gradient Descent</h3>
-        Our objective with the gradient descent algorithm is to reach a local
-        minimum in our cost function by tweaking the paramters. While there are
-        several additional improvements and variations of gradient descent like
-        gradient boosting being implemented, the basic algorithm works well in
-        most cases.
-        <br />
-        <hr />
-        <h4>Intuition</h4>
-        The cost function is a function of the weights and biases of our neural
-        network. In the following example, the ellipses are contour lines of the
-        cost function. If you are not familiar with what contour lines are, the
-        number next to each line represents the value of the function at every
-        point on that line. So you can think of this graph as getting higher and
-        higher as you go out from the center like a bowl.
-        <div class="parts__graddesc">
-          <img
-            class="gradpic"
-            style="width: 600px; height: auto; margin: 0px"
-            src="images/graddescent.JPG"
-            alt=""
-          />
-        </div>
-        You can see here that we want to tweak \(\theta_1\) and \(\theta_2\) so
-        that we reach a local minimum. If we take the gradient at a point in the
-        graph (which is the slope of the red line), it will point us in the
-        direction of steepest at that point. Therefore, in order to reduce our
-        error, we travel in the direction of the negative gradient, aka
-        <strong>steepest descent</strong>. So say we start off with some random
-        weights \(\theta_1\) and \(\theta_2\) and our cost function evaluates to
-        50. What we would do each iteration is:
-        <br />
-        $$\theta := \theta - \frac{dJ}{d\theta}$$ So every iteration or "epoch",
-        we decrement \(\theta\) by the value of the gradient at that point with
-        respect to \(\theta\)(\(:=\) is the assignment operator).
-        <br />
-      </div>
-      <div class="parts">
-        <h3>In Practice</h3>
-        <h4>Learning Rate</h4>
-        Usually, when we are performing gradient descent, directly subtracting
-        the gradient is not a good idea because it can be too large or too
-        small(more often the former). Therefore, a "learning rate" is used to
-        scale the gradient down and to obtain a better control of the learning
-        process. We use a hyper parameter, \(\alpha \), for this learning rate.
-        <br />
-        Decrementing would look like this:
-        <br />
-        $$ \theta := \theta - \alpha(\frac{dJ}{d\theta})$$ where alpha is
-        usually a small decimal.
+			<div class="parts">
+				<h3>Gradient Descent</h3>
+				Our objective with the gradient descent algorithm is to reach a local
+				minimum in our cost function by tweaking the paramters. While there are
+				several additional improvements and variations of gradient descent like
+				gradient boosting being implemented, the basic algorithm works well in
+				most cases.
+				<br />
+				<hr />
+				<h4>Intuition</h4>
+				The cost function is a function of the weights and biases of our neural
+				network that measures performace. In the following example, the ellipses
+				are contour lines of an arbitrary cost function. If you are not familiar
+				with what contour lines are, the number next to each line represents the
+				value of the function at every point on that line. So you can think of
+				this graph as getting higher and higher as you go out from the center
+				like a bowl.
+				<div class="parts__graddesc">
+					<img
+						class="gradpic"
+						style="width: 600px; height: auto; margin: 0px"
+						src="images/graddescent.JPG"
+						alt=""
+					/>
+				</div>
+				You can see here that we want to tweak \(\theta_1\) and \(\theta_2\) so
+				that we reach a local minimum. If we take the gradient at a point in the
+				graph (which is the slope of the red line), it will point us in the
+				direction of steepest <strong>ascent</strong> at that point. Therefore,
+				in order to reduce our error, we travel in the direction of the negative
+				gradient, aka <strong>steepest descent</strong>. So say we start off
+				with some random weights \(\theta_1\) and \(\theta_2\). Each iteration
+				of gradient descent will be as follows:
+				<br />
+				$$\theta := \theta - \frac{dJ}{d\theta}$$ So every iteration or "epoch",
+				we decrement \(\theta\) by the value of the gradient at that point with
+				respect to \(\theta\) (\(:=\) is the assignment operator).
+				<br />
+			</div>
+			<div class="parts">
+				<h3>In Practice</h3>
+				<h4>Learning Rate</h4>
+				Usually, when we are performing gradient descent, directly subtracting
+				the gradient is not a good idea because it can be too large or too
+				small(more often the former). Therefore, a "learning rate" is used to
+				scale the gradient and to obtain a better control of the learning
+				process. We use a hyper parameter, \(\alpha \), for this learning rate.
+				<br />
+				With this in practice, the gradient descent algorithm would look like
+				this:
+				<br />
+				$$ \theta := \theta - \alpha(\frac{dJ}{d\theta})$$ where \(\alpha \) is
+				a hyperparameter that we pick.
 
-        <h4>Cost Function</h4>
-        Now that we have a basic grasp of gradient descent, the next task is to
-        pick the <strong>right cost function</strong>. In our
-        <a href="./blogpost1.html">forward pass example</a>, we designed a
-        neural net to predict a continous outcome. We can use the same cost
-        function that the linear regression algorithm uses: Mean Squared Error
-        or MSE. Simply put, we want our neural net to make an approximation of
-        the labels so we can use MSE here. If our task was categorization, the
-        process is slightly more complex. <br />Mean Squared Error:
-        $$\frac{1}{M} \sum_{i=0}^M(y^{(i)} - a^{(L)}_i)^2$$
-        <br />
-        Let's break this down: 'M' is the number of samples, \(a^{(L)}_i\) is
-        the output of the neural network for the \(i\)-th sample, \(y^{(i)}\) is
-        the \(i\)-th label. So we are squaring the difference between the
-        prediction and values and taking the average over all samples. Why do we
-        square it? Because if it wasnt, we would see errors cancelling out so
-        squaring it makes sure error is always positive for every sample.
-        <br />
-        <br />
-        <h4>2D visual representation:</h4>
-        <br />
-        <div>
-          <p>
-            This is a linear regression function, but it still does the job in
-            demosntrating how error works. The red squares in this image
-            represent the error from each data sample. The blue line is the
-            prediction function, and the black dots represent each data sample.
-            To find the area of each square, we square the difference between
-            the label and the prediction. The areas of these squares are
-            averaged to find the error of this model.
-          </p>
-          <img src="images/MSE.JPG" alt="" style="width: 400px; height: auto" />
-        </div>
-        <h4>Derivative of the Cost Function</h4>
-        The end goal of this is to tweak our parameters so that we can find the
-        perfect amount that we need to "turn the knob" on each parameter. So in
-        order to find \(\frac{dJ}{d\theta}\), we have to apply the chain rule as
-        follows:
-        <br />
-        $$ \frac{dJ}{dW} = \frac{dJ}{da^{(L)}} * \frac{da^{(L)}}{dz} *
-        \frac{dz}{d\theta}$$
-        <br />
-        This derivative calculation is for a single layer perceptron and to
-        figure out the weight parameters.
-        <br />
-        Let's go back to the neural network we used in the other blog:
-        <div class="code" style="width: fit-content; margin: auto">
-          # layer 1 <br />
-          Z1 = W1 @ X + B1 <br />
-          A1 = sigmoid(Z1) <br />
-          # layer 2 <br />
-          Z2 = W2 @ A1 + B2 <br />
-          A2 = sigmoid(Z2)
-        </div>
+				<h4>Cost Function</h4>
+				Now that we have a basic grasp of gradient descent, the next task is to
+				pick the <strong>right cost function</strong>. In our
+				<a href="./blogpost1.html">forward pass example</a>, we designed a
+				neural net to predict a continous outcome. We can use the same cost
+				function that the linear regression algorithm uses: Mean Squared Error
+				or MSE. Simply put, we want our neural net to make an approximation of
+				the labels so we can use MSE here. If our task was categorization, the
+				process is slightly more complex. <br />Mean Squared Error:
+				$$\frac{1}{M} \sum_{i=0}^M(y^{(i)} - a^{(L)}_i)^2$$
+				<br />
+				Let's break this down: 'M' is the number of samples, \(a^{(L)}_i\) is
+				the output of the neural network for the \(i\)-th sample, \(y^{(i)}\) is
+				the \(i\)-th label. So we are squaring the difference between the
+				prediction and values and taking the average over all samples. Why do we
+				square it? Because if it wasnt, we would see errors cancelling out. So
+				squaring it makes sure error is always positive for every sample.
+				<br />
+				<br />
+				<h4>2D visual representation:</h4>
+				<br />
+				<div>
+					<p>
+						This is a linear regression function, but it still does the job in
+						demosntrating how error works. The red squares in this image
+						represent the error from each data sample. The blue line is the
+						prediction function, and the black dots represent each data sample.
+						To find the area of each square, we square the difference between
+						the label and the prediction. The areas of these squares are
+						averaged to find the error of this model.
+					</p>
+					<img src="images/MSE.JPG" alt="" style="width: 50%; height: auto" />
+				</div>
+				<h4>Derivative of the Cost Function</h4>
+				The end goal of this is to tweak our parameters so that we can find the
+				perfect amount that we need to "turn the knob" on each parameter. So in
+				order to find \(\frac{dJ}{d\theta}\), we have to apply the chain rule as
+				follows:
+				<br />
+				$$ \frac{dJ}{dW} = \frac{dJ}{da^{(L)}} * \frac{da^{(L)}}{dz} *
+				\frac{dz}{d\theta}$$
+				<br />
+				This derivative calculation is for a single layer perceptron and to
+				figure out the weight parameters.
+				<br />
+				Let's go back to the neural network we used in the other blog:
+				<div class="code" style="width: fit-content; margin: auto">
+					# layer 1 <br />
+					Z1 = W1 @ X + B1 <br />
+					A1 = sigmoid(Z1) <br />
+					# layer 2 <br />
+					Z2 = W2 @ A1 + B2 <br />
+					A2 = sigmoid(Z2)
+				</div>
 
-        $$ \displaylines{J(\theta) = \frac{1}{M}\sum_{i=0}^M(A_2 - y)^2 \\ \\
-        <br />
-        \frac{dJ}{dW_2} = \frac{dJ}{dA_2} * \frac{dA_2}{dZ_2} *
-        \frac{dZ_2}{dW_2}\\
-        <br />
-        \frac{dJ}{dB_2} = \frac{dJ}{dA_2} * \frac{dA_2}{dZ_2} *
-        \frac{dZ_2}{dB_2}\\
-        <br />\\ \frac{dJ}{dW_1} = \frac{dJ}{dA_2} * \frac{dA_2}{dZ_2} *
-        \frac{dZ_2}{dA_1} * \frac{dA_1}{dZ_1} * \frac{dZ_1}{dW_1}\\
-        <br />
-        \frac{dJ}{dB_1} = \frac{dJ}{dA_2} * \frac{dA_2}{dZ_2} *
-        \frac{dZ_2}{dA_1} * \frac{dA_1}{dZ_1} * \frac{dZ_1}{dB_1}} $$ <br />
-        Now, let's compute each derivative. I am going to leave out the
-        summation notation for simplicity purposes.
-        <h3 style="text-align: center">First set of derivatives</h3>
-        $$ \displaylines{\frac{dJ}{dA_2} = 2(A_2 - y)\\<br />
-        \frac{dA_2}{dZ_2} = A_2(1 - A_2)\longrightarrow\textrm{simplified} \\
-        \frac{dZ_2}{dW_2} = A_1 \\
-        <br />
-        \frac{dZ_2}{dB_2} = 1
-        <br />
-        } $$
-        <h3 style="text-align: center">Second set of derivatives</h3>
-        <p style="text-align: center">
-          Some derivatives we need are already calculated above.
-        </p>
-        $$ \displaylines{\frac{dZ_2}{dA_1} = W2 \\
-        <br />
-        \frac{dA_1}{dZ_1} = A_1(1 - A_1) \\
-        <br />
-        \frac{dZ_1}{dW_1} = X \\
-        <br />
-        \frac{dZ_1}{dB_1} = 1 }$$ Now, you can plug in these values to get
-        \(\frac{dJ}{dW_2}\),\(\frac{dJ}{dB_2}\),\(\frac{dJ}{dW_1}\),\(\frac{dJ}{dB_1}\).
+				$$ \displaylines{J(\theta) = \frac{1}{M}\sum_{i=0}^M(A_2 - y)^2 \\ \\
+				<br />
+				\frac{dJ}{dW_2} = \frac{dJ}{dA_2} * \frac{dA_2}{dZ_2} *
+				\frac{dZ_2}{dW_2}\\
+				<br />
+				\frac{dJ}{dB_2} = \frac{dJ}{dA_2} * \frac{dA_2}{dZ_2} *
+				\frac{dZ_2}{dB_2}\\
+				<br />\\ \frac{dJ}{dW_1} = \frac{dJ}{dA_2} * \frac{dA_2}{dZ_2} *
+				\frac{dZ_2}{dA_1} * \frac{dA_1}{dZ_1} * \frac{dZ_1}{dW_1}\\
+				<br />
+				\frac{dJ}{dB_1} = \frac{dJ}{dA_2} * \frac{dA_2}{dZ_2} *
+				\frac{dZ_2}{dA_1} * \frac{dA_1}{dZ_1} * \frac{dZ_1}{dB_1}} $$ <br />
+				Now, let's compute each derivative. I am going to leave out the
+				summation notation for simplicity purposes.
+				<h3 style="text-align: center">First set of derivatives</h3>
+				$$ \displaylines{\frac{dJ}{dA_2} = 2(A_2 - y)\\<br />
+				\frac{dA_2}{dZ_2} = A_2(1 - A_2)\longrightarrow\textrm{simplified} \\
+				\frac{dZ_2}{dW_2} = A_1 \\
+				<br />
+				\frac{dZ_2}{dB_2} = 1
+				<br />
+				} $$
+				<h3 style="text-align: center">Second set of derivatives</h3>
+				<p style="text-align: center">
+					Some derivatives we need are already calculated above.
+				</p>
+				$$ \displaylines{\frac{dZ_2}{dA_1} = W2 \\
+				<br />
+				\frac{dA_1}{dZ_1} = A_1(1 - A_1) \\
+				<br />
+				\frac{dZ_1}{dW_1} = X \\
+				<br />
+				\frac{dZ_1}{dB_1} = 1 }$$ Now, you can plug in these values to get
+				\(\frac{dJ}{dW_2}\),\(\frac{dJ}{dB_2}\),\(\frac{dJ}{dW_1}\),\(\frac{dJ}{dB_1}\).
 
-        <div class="code" style="width: fit-content; margin: auto">
-          dA2 = 2(A2 - y)
-          <br />
-          dZ2 = W1.T.dot(dA2) * d_sigmoid(Z2)
-          <br />
-          dW2 = dZ2.dot(A1.T)
-          <br />dB2 = np.sum(dZ2, axis=1, keepdims=True)
-          <br />
-          dZ1 = W2.T.dot(dZ2) * d_sigmoid(Z1)
-          <br />
-          dW1 = dZ1.dot(X.T)
-          <br />dB1 = np.sum(dZ1, axis=1, keepdims=True)
-          <br />
-          W1 -= dW1 * lr
-          <br />B1 -= dB1 * lr
-          <br />
-          W2 -= dW2 * lr
-          <br />B2 -= dB2 * lr
-          <br />
-        </div>
-      </div>
-    </div>
-  </body>
+				<div class="code" style="width: fit-content; margin: auto">
+					dA2 = 2(A2 - y)
+					<br />
+					dZ2 = W1.T.dot(dA2) * d_sigmoid(Z2)
+					<br />
+					dW2 = dZ2.dot(A1.T)
+					<br />dB2 = np.sum(dZ2, axis=1, keepdims=True)
+					<br />
+					dZ1 = W2.T.dot(dZ2) * d_sigmoid(Z1)
+					<br />
+					dW1 = dZ1.dot(X.T)
+					<br />dB1 = np.sum(dZ1, axis=1, keepdims=True)
+					<br />
+					W1 -= dW1 * lr
+					<br />B1 -= dB1 * lr
+					<br />
+					W2 -= dW2 * lr
+					<br />B2 -= dB2 * lr
+					<br />
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

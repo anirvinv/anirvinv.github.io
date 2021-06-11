@@ -99,12 +99,30 @@ body {
   width: 100%;
 }
 
-.container form * {
-  font-family: Corbel;
+.container form {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ff7e7e), to(#73d9ee));
+  background-image: linear-gradient(#ff7e7e, #73d9ee);
+  padding: 20px;
+  outline: solid #272626 2px;
 }
 
 .container form input,
 .container form textarea {
   outline: none;
+}
+
+.container form p {
+  font-family: Corbel;
+}
+
+.container form input[type="text"],
+.container form textarea {
+  outline: black solid 1px;
+  font-size: 100%;
+  font-family: Corbel;
+}
+
+.container form input[type="submit"] {
+  padding: 4px;
 }
 /*# sourceMappingURL=contact.css.map */

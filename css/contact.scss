@@ -5,14 +5,26 @@
 .container {
   height: 100vh;
   width: 100%;
-
   form {
-    * {
-      font-family: Corbel;
-    }
+    background-image: linear-gradient($mellow_red/.8, $mellow_blue);
+
+    padding: 20px;
+    outline: solid rgb(39, 38, 38) 2px;
     input,
     textarea {
       outline: none;
+    }
+    p {
+      font-family: Corbel;
+    }
+    input[type="text"],
+    textarea {
+      outline: black solid 1px;
+      font-size: 100%;
+      font-family: Corbel;
+    }
+    input[type="submit"] {
+      padding: 4px;
     }
   }
 }

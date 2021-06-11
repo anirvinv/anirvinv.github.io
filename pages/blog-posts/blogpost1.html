@@ -1,156 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/blogstyle.css" />
-    <script src="../js/main.js"></script>
-    <title>Forward Pass</title>
-  </head>
-  <body>
-    <div class="back" onclick="location.href='../blog.html' "><< Go Back</div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles/blogstyle.css" />
+		<script src="../js/main.js"></script>
+		<title>Forward Pass</title>
+	</head>
+	<body>
+		<div class="back" onclick="location.href='../blog.html' "><< Go Back</div>
 
-    <div class="parts" id="contents">
-      <h1>Forward Propogation</h1>
-      <div id="intro">
-        <div>
-          <h3>Wow, Neural Networks</h3>
-          <p>
-            Neural Networks are one of the biggest black boxes, yet they are
-            present in every corner of our lives. In essence, they are functions
-            that are able to learn whacky patterns. But what about it makes it a
-            challenge to understand? Is it the heavy calculus involved? “There
-            are so many derivatives to compute". Okay, but if you know this one
-            thing called the Chain Rule, you have the weapon you need to defeat
-            the mini-boss that is calculus.
-          </p>
-        </div>
-        <img src="images/neuralnet.JPG" alt="Neural Net" />
-      </div>
+		<div class="parts" id="contents">
+			<h1>Forward Propogation</h1>
+			<div id="intro">
+				<div>
+					<h3>Wow, Neural Networks</h3>
+					<p>
+						Neural Networks are one of the biggest black boxes, yet they are
+						present in every corner of our lives. In essence, they are functions
+						that are able to learn whacky patterns. But what about it makes it a
+						challenge to understand? Is it the heavy calculus involved? “There
+						are so many derivatives to compute". Okay, but if you know this one
+						thing called the Chain Rule, you have the weapon you need to defeat
+						the mini-boss that is calculus.
+					</p>
+				</div>
+				<img src="images/neuralnet.JPG" alt="Neural Net" />
+			</div>
 
-      <div class="parts" id="linearalg">
-        <h3>Linear Algebra.</h3>
-        <div>
-          If you don’t know how to do matrix multiplication or dot products, I
-          suggest you head over to MIT Opencourseware and guzzle their content
-          down because that is an excellent way to build enough confidence to
-          start the vector hell that is Neural Networks. Okay. So if you are
-          confident with vectors, dot products, and matrix multiplication,
-          congratulations. You hold the key to level 1: A 2-Layer
-          Perceptron(composed of a hidden layer and output layer). Oh,
-          perceptrons and neurons are the same thing.
-          <a
-            target="_blank"
-            href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/"
-          >
-            <img src="images/MITopencourseware.jpg" alt="" />
-          </a>
-        </div>
-      </div>
-      <h2>Here We Go!</h2>
-      <div class="parts" id="part1">
-        <h3>Step 1: Visualize</h3>
-        <div>
-          <p>
-            Let’s say each sample in our training data has 3 features and we
-            have 100 samples. Our hidden layer has 5 neurons and finally our
-            output layer has 1 neuron. One thing to keep in mind is that
-            <b>each neuron produces one output and one output only.</b>
-          </p>
-          <img src="images/neuralnet.JPG" alt="" />
-        </div>
-      </div>
+			<div class="parts" id="linearalg">
+				<h3>Linear Algebra.</h3>
+				<div>
+					If you don’t know how to do matrix multiplication or dot products, I
+					suggest you head over to MIT Opencourseware and guzzle their content
+					down because that is an excellent way to build enough confidence to
+					start the vector hell that is Neural Networks. Okay. So if you are
+					confident with vectors, dot products, and matrix multiplication,
+					congratulations. You hold the key to level 1: A 2-Layer
+					Perceptron(composed of a hidden layer and output layer).
+					<a
+						target="_blank"
+						href="https://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/"
+					>
+						<img src="images/MITopencourseware.jpg" alt="" />
+					</a>
+				</div>
+			</div>
+			<h2>Here We Go!</h2>
+			<div class="parts" id="part1">
+				<h3>Step 1: Visualize</h3>
+				<div>
+					<p>
+						Let’s say each sample in our training data has 3 features and we
+						have 100 samples. Our hidden layer has 5 neurons and finally our
+						output layer has 1 neuron. One thing to keep in mind is that
+						<b>each neuron produces one output and one output only.</b>
+					</p>
+					<img src="images/neuralnet.JPG" alt="" />
+				</div>
+			</div>
 
-      <div class="parts" id="part2">
-        <h3>Step 2: Initialize Parameters</h3>
-        <div id="code-exp">
-          <div class="code">
-            import numpy as np <br />
-            # initialize random data <br />
-            X = np.random.random((3, 100)) <br />
-            # initialize the first layer <br />
-            W1 = np.random.random((5, 3)) <br />
-            B1 = np.random.random((5,1))
-          </div>
-          <p>
-            There are 5 neurons in our hidden layer <b>stacked vertically</b>.
-            The weights that we initialized are also 5
-            <b>vertically stacked rows</b>
-            of weights. Therefore, each <b>row represents one neuron</b>.
-            Consequently there is 1 bias per neuron/row. You might also be
-            wondering why the weights are 3 x 100 and not 100 x 3. Well, in the
-            visual above, the input features are stacked vertically. So often,
-            you are going to want to transpose your data when you first obtain
-            it raw because each sample is a row in most datasets.
-            <em>Luckily, transposing is super easy in numpy(read the docs).</em>
-          </p>
-          <hr />
-        </div>
-        <p>
-          Next, we will need an activation function for this layer to introduce
-          non-linearity. We will be using the sigmoid activation function. This
-          function will be element-wise, so it will not affect the output's
-          dimensions.
-        </p>
-        <div id="activation" class="code">
-          def sigmoid(x): <br />
-          &nbsp &nbsp &nbsp&nbspreturn 1/(1+np.exp(-x))
-        </div>
+			<div class="parts" id="part2">
+				<h3>Step 2: Initialize Parameters</h3>
+				<div id="code-exp">
+					<div class="code">
+						import numpy as np <br />
+						# initialize random data <br />
+						X = np.random.random((3, 100)) <br />
+						# initialize the first layer <br />
+						W1 = np.random.random((5, 3)) <br />
+						B1 = np.random.random((5,1))
+					</div>
+					<p>
+						There are 5 neurons in our hidden layer <b>stacked vertically</b>.
+						The weights that we initialized are also 5
+						<b>vertically stacked rows</b>
+						of weights. Therefore, each <b>row represents one neuron</b>.
+						Consequently there is 1 bias per neuron/row. You might also be
+						wondering why the weights are 3 x 100 and not 100 x 3. Well, in the
+						visual above, the input features are stacked vertically. So often,
+						you are going to want to transpose your data when you first obtain
+						it raw because each sample is a row in most datasets.
+						<em>Luckily, transposing is super easy in numpy(read the docs).</em>
+					</p>
+					<hr />
+				</div>
+				<p>
+					Next, we will need an activation function for this layer to introduce
+					non-linearity. We will be using the sigmoid activation function. This
+					function will be element-wise, so it will not affect the output's
+					dimensions.
+				</p>
+				<div id="activation" class="code">
+					def sigmoid(x): <br />
+					&nbsp &nbsp &nbsp&nbspreturn 1/(1+np.exp(-x))
+				</div>
 
-        <p>Now we will initialize the second/output layer.</p>
-        <div id="second-layer" class="code">
-          W2 = np.random.random((1, 5)) <br />
-          B2 = np.random.random((1,1))
-        </div>
-      </div>
+				<p>Now we will initialize the second/output layer.</p>
+				<div id="second-layer" class="code">
+					W2 = np.random.random((1, 5)) <br />
+					B2 = np.random.random((1,1))
+				</div>
+			</div>
 
-      <div id="part3" class="parts">
-        <h3>Step 3: Forward Propogation</h3>
-        <div>
-          <p>
-            So in this case, we have one neuron for our output layer. Thus, we
-            use one row of 5 weights for each of the 5 outputs from the previous
-            layer. Now, since we have initialized our weights, we can start
-            forward propagating.
-          </p>
-          <div id="propogate" class="code">
-            # layer 1 <br />
-            Z1 = W1 @ X + B1 <br />
-            A1 = sigmoid(Z1) <br />
-            # layer 2 <br />
-            Z2 = W2 @ A1 + B2 <br />
-            A2 = sigmoid(Z2)
-          </div>
-        </div>
-        <h3 style="text-align: center; font-size: 25px">That's it!</h3>
-        <div id="complete" class="code">
-          #Complete Code: <br />
+			<div id="part3" class="parts">
+				<h3>Step 3: Forward Propogation</h3>
+				<div>
+					<p>
+						So in this case, we have one neuron for our output layer. Thus, we
+						use one row of 5 weights for each of the 5 outputs from the previous
+						layer. Now, since we have initialized our weights, we can start
+						forward propagating.
+					</p>
+					<div id="propogate" class="code">
+						# layer 1 <br />
+						Z1 = W1 @ X + B1 <br />
+						A1 = sigmoid(Z1) <br />
+						# layer 2 <br />
+						Z2 = W2 @ A1 + B2 <br />
+						A2 = sigmoid(Z2)
+					</div>
+				</div>
+				<h3 style="text-align: center; font-size: 25px">That's it!</h3>
+				<div id="complete" class="code">
+					#Complete Code: <br />
 
-          import numpy as np<br /><br />
-          #Define the activation function<br />
-          def sigmoid(x): <br />
-          &nbsp &nbsp &nbsp&nbspreturn 1/(1+np.exp(-x))<br />
-          <br />
-          # initialize random data<br />
-          X = np.random.random((3, 100))<br />
-          <br />
-          # initialize the first layer<br />
-          W1 = np.random.random((5, 3))<br />
-          B1 = np.random.random((5, 1))<br />
-          # initialize the second layer<br />
-          W2 = np.random.random((1, 5))<br />
-          B2 = np.random.random((1,1))<br />
-          <br />
-          # layer 1<br />
-          Z1 = W1 @ X + B1<br />
-          A1 = sigmoid(Z1)<br />
-          <br />
-          # layer 2<br />
-          Z2 = W2 @ A1 + B2<br />
-          A2 = sigmoid(Z2)<br />
-        </div>
-      </div>
-    </div>
-  </body>
+					import numpy as np<br /><br />
+					#Define the activation function<br />
+					def sigmoid(x): <br />
+					&nbsp &nbsp &nbsp&nbspreturn 1/(1+np.exp(-x))<br />
+					<br />
+					# initialize random data<br />
+					X = np.random.random((3, 100))<br />
+					<br />
+					# initialize the first layer<br />
+					W1 = np.random.random((5, 3))<br />
+					B1 = np.random.random((5, 1))<br />
+					# initialize the second layer<br />
+					W2 = np.random.random((1, 5))<br />
+					B2 = np.random.random((1,1))<br />
+					<br />
+					# layer 1<br />
+					Z1 = W1 @ X + B1<br />
+					A1 = sigmoid(Z1)<br />
+					<br />
+					# layer 2<br />
+					Z2 = W2 @ A1 + B2<br />
+					A2 = sigmoid(Z2)<br />
+				</div>
+			</div>
+		</div>
+	</body>
 </html>
