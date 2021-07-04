@@ -3,9 +3,7 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  margin-top: 10%;
   font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode";
   -ms-grid-row: 1;
   grid-row: 1;
@@ -46,7 +44,7 @@
 }
 
 .container .navbar2 a {
-  margin-right: 5.51041666667%;
+  margin-right: 3%;
 }
 
 .flex {
@@ -110,6 +108,13 @@ body {
   padding-left: 10%;
   bottom: 0px;
   left: 0px;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.container .title__h1:hover {
+  font-size: 5.5vw;
+  border-left: 21px solid #313030;
 }
 
 .container #red_square {
@@ -145,7 +150,38 @@ body {
   margin-left: 10%;
 }
 
+.profile {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  grid-row: 2/4;
+  height: 100%;
+  width: 100%;
+  margin-top: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-filter: contrast(150%);
+          filter: contrast(150%);
+}
+
+.profile img {
+  outline: 3px solid black;
+  -webkit-filter: drop-shadow(10px 10px #6eb9eb);
+          filter: drop-shadow(10px 10px #6eb9eb);
+  height: 400px;
+  margin: auto;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+}
+
 @media screen and (max-width: 800px) {
+  .profile {
+    visibility: hidden;
+  }
   .container .title {
     position: relative;
     -ms-grid-row: 2;

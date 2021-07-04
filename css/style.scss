@@ -27,6 +27,11 @@ body {
       padding-left: 10%;
       bottom: 0px;
       left: 0px;
+      transition: 0.3s;
+    }
+    &__h1:hover{
+      font-size: 5.5vw;
+      border-left: 21px solid rgb(49, 48, 48);
     }
   }
 
@@ -50,7 +55,29 @@ body {
     margin-left: 10%;
   }
 }
+.profile{
+  // overflow: hidden;
+  grid-row: 2/4;
+  height: 100%;
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  filter: contrast(150%);
+  img{
+    outline: 3px solid black;
+    filter: drop-shadow(10px 10px rgb(110, 185, 235));
+    height: 400px;
+    margin: auto;
+    transition: 0.5s;
+    opacity: 0;
+  }
+  
+}
 @media screen and (max-width: 800px) {
+  .profile{
+    visibility: hidden;
+  }
   .container {
     .title {
       position: relative;

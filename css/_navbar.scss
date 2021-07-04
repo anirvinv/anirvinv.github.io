@@ -2,7 +2,8 @@
   .navbar,
   .navbar2 {
     display: flex;
-    align-items: center;
+    margin-top: 10%;
+    // align-items: center;
     font-family: Corbel, "Lucida Grande", "Lucida Sans Unicode";
     grid-row: 1;
     a {
@@ -31,7 +32,7 @@
     grid-column: 3;
     justify-content: center;
     a {
-      margin-right: 5.51041666667%;
+      margin-right: 3%;
     }
   }
 }
