@@ -5,8 +5,17 @@
 body {
   font-family: "Courier New", Courier, monospace;
 }
-
+// .logo{
+//   transition: 0.8s;
+//   opacity: 0;
+//   margin: auto;
+//   img{
+//     height: 50vh;
+//   }
+// }
 .container {
+  // opacity: 0;
+  // transition: 0.5s;
   height: 100vh;
   width: 100vw;
   display: grid;

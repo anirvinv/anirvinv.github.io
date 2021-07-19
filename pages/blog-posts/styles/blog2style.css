@@ -23,19 +23,26 @@
   margin: 20px;
 }
 
-#contents td {
+#contents #filter td {
   height: 50px;
   width: 50px;
+}
+
+#contents td {
   outline: 2px solid transparent;
   border-radius: 5px;
   text-align: center;
 }
 
 #contents #image td {
+  height: 50px;
+  width: 50px;
   background-color: #59f187;
 }
 
 #contents #filter td {
+  height: 50px;
+  width: 60px;
   background-color: #f88a8a;
 }
 
@@ -49,6 +56,8 @@
 }
 
 #contents #featuremap td {
+  height: 50px;
+  width: 60px;
   border: 2px solid yellow;
 }
 
@@ -103,6 +112,8 @@
 }
 
 #contents .rgb-filter td {
+  height: 50px;
+  width: 50px;
   opacity: 0.9;
   background-color: #f75a5a;
   -webkit-box-shadow: 8px 8px 0px #5f9dfc, 16px 16px 0px #00ff6a;
@@ -110,6 +121,8 @@
 }
 
 #contents .rgb-image td {
+  height: 50px;
+  width: 50px;
   opacity: 0.9;
   background-color: red;
   outline: transparent;
@@ -123,6 +136,8 @@
 }
 
 #contents #multichannel .rgb-result td {
+  height: 50px;
+  width: 50px;
   background-color: yellow;
   -webkit-box-shadow: 0px 0px 0px;
           box-shadow: 0px 0px 0px;

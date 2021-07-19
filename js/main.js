@@ -1,8 +1,22 @@
+// window.onload = function(){
+    
+//     container = document.querySelector('.container');
+//     logo = document.querySelector('.logo');
+//     logo.style.opacity = 1;
+    
+//     setTimeout(function(){
+//         logo.style.opacity = 0;
+//     }, 2000)
 
-console.log("bruh");
+//     setTimeout(function(){
+//         container.style.display='grid';
+//         container.style.opacity=1;
+//         logo.style.display = 'none';
+//     }, 3200);
 
-// document.addEventListener('DOMcontentloaded', ()=>{
-//     console.log("bruh");
+//  };
+
+function titleHover(){
     title = document.querySelector('#big_title');
     title.addEventListener('mouseover',()=>{
         img = document.querySelector('.profile > img');
@@ -12,8 +26,8 @@ console.log("bruh");
         img = document.querySelector('.profile > img');
         img.style.opacity='0';
     })
-console.log(title);
-    
+}
 
-// })
+titleHover();
+    
 
