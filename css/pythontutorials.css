@@ -136,9 +136,10 @@ html, body {
 }
 
 .classoutline div {
+  padding: 10px;
   height: 100%;
   margin: auto;
-  width: 70%;
+  width: 50%;
   border: 4px solid gray;
   border-radius: 100px;
 }
@@ -180,9 +181,7 @@ html, body {
 }
 
 .whyme .flex {
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  width: 100%;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -203,14 +202,15 @@ html, body {
 }
 
 .whyme img {
-  height: 400px;
-  margin: 20px;
+  height: 430px;
+  border: 12px solid black;
 }
 
 .whyme .about {
   border: 2px solid gray;
   padding: 40px;
   width: 500px;
+  height: 430px;
 }
 
 .flex {
@@ -223,20 +223,37 @@ html, body {
 }
 
 @media screen and (max-width: 800px) {
+  html, body {
+    overflow-x: hidden;
+  }
   .flex {
     display: block;
     margin-bottom: 30%;
   }
   .classoutline {
     position: relative;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .classoutline div {
-    height: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
     margin: auto;
     width: 100%;
     border: 4px solid gray;
     border-radius: 0px;
     padding: 30px;
+  }
+  .classoutline div li {
+    margin-bottom: 10px;
+  }
+  .whyme .about {
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .whyme img {
     display: none;

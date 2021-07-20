@@ -93,11 +93,12 @@ html, body{
     position: relative;
     margin-bottom: 50px;
     div{
+        padding: 10px;
         height: 100%;
         // padding: 10px;
         // position: absolute;
         margin: auto;
-        width: 70%;
+        width: 50%;
         // background: cyan;
         border: 4px solid gray;
         border-radius: 100px;
@@ -131,7 +132,7 @@ html, body{
 
 .whyme{
     .flex{
-        width: fit-content;
+        width: 100%;
         margin: auto;
         display: flex;
         align-items: center;
@@ -146,13 +147,15 @@ html, body{
         font-size: 50px;
     }
     img{
-        height: 400px;
-        margin: 20px;
+        height: 430px;
+        border: 12px solid black;
+        // margin: 20px;
     }
     .about{
         border: 2px solid gray;
         padding: 40px;
-        width: 500px; 
+        width: 500px;
+        height: 430px; 
     }
 }
 
@@ -163,6 +166,9 @@ html, body{
 
 
 @media screen and (max-width: 800px) {
+    html,body{
+        overflow-x: hidden;
+    }
     .flex{
         display: block;
         margin-bottom: 30%;
@@ -170,7 +176,7 @@ html, body{
     .classoutline{
         position: relative;
         div{
-            height: 100%;
+            height: fit-content;
             // padding: 10px;
             // position: absolute;
             margin: auto;
@@ -179,10 +185,19 @@ html, body{
             border: 4px solid gray;
             border-radius: 0px;
             padding: 30px;
+            li{
+                margin-bottom: 10px;
+            }
         }
+        height: fit-content;
     }
 
     .whyme{
+        .about{
+            width: 100%;
+            height: fit-content;
+            // border: 0px;
+        }
         img{
             display: none;
         }
