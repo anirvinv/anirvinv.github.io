@@ -1,5 +1,5 @@
 import { bubbleSort } from "./bubblesort.js";
-import { selectionSort } from "./selectionSort.js";
+import { selectionSort } from "./selectionsort.js";
 import { mergeSort } from "./mergesort.js";
 
 function generateRandomArray(length) {
