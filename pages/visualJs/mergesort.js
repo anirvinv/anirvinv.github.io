@@ -9,10 +9,7 @@ export function mergeSort(parent, array) {
 		childDivs.forEach((childDiv, index) => {
 			// childDiv.style.width = `${parseInt(60 / childDivs.length)}%`;
 			childDiv.style.width = "6px";
-			if (parseInt(60 / childDivs.length) > 3) {
-				childDivs[index].innerText = `${arr[index]}`;
-			}
-			childDivs[index].style.height = `${arr[index] * 5}px`;
+			childDivs[index].style.height = `${arr[index] * 4}px`;
 		});
 	}
 
@@ -66,6 +63,58 @@ export function mergeSort(parent, array) {
 		}
 	}
 
+	function subArraySizes(twoDimArray) {
+		let arr = [...twoDimArray];
+		let sizes = [];
+
+		arr.forEach((subArr) => {
+			sizes.push(subArr.length);
+		});
+		return sizes;
+	}
+
+	function transpose(twoDimArray) {
+		let arr = [...twoDimArray];
+
+		let transposed = [];
+		let i = 0;
+		let row = [];
+		for (let j = 0; j < arr[0].length; j++) {
+			row = [];
+			for (let i = 0; i < arr.length; i++) {
+				row.push(arr[i][j]);
+			}
+			transposed.push(row);
+		}
+
+		return transposed;
+	}
+
+	function lightUpIndices(arraySizes) {
+		let sizes = [...arraySizes];
+		let indices = [];
+		let count = 0;
+		let arr = [];
+		sizes.forEach((size) => {
+			arr = [];
+			for (let i = 0; i < size; i++) {
+				arr.push(i + count);
+			}
+			indices.push(arr);
+			count += size;
+		});
+		return indices;
+	}
+	let parentElement = document.querySelector(parent);
+	let childDivs = parentElement.querySelectorAll("div");
+	let childDivColor = childDivs[0].style.backgroundColor;
+
+	function clearChildDivColor() {
+		childDivs.forEach((element) => {
+			element.style.backgroundColor = childDivColor;
+		});
+	}
+
 	function iterativeMergeSort(parent, array) {
 		let copy = array.map((element) => [element]);
 		let copy1 = [];
@@ -76,7 +125,7 @@ export function mergeSort(parent, array) {
 			i += 2;
 		}
 		if (copy.length % 2 != 0) {
-			copy1.append(copy[copy.length - 1]);
+			copy1.push(copy[copy.length - 1]);
 		}
 		let n = array.length;
 		let groupSize = 2;
@@ -105,22 +154,43 @@ export function mergeSort(parent, array) {
 			if (copy2.length % 2 != 0) {
 				copy1.push(copy2[copy2.length - 1]);
 			}
+			stepArrays.push(copy2);
 			stepArrays.push(copy1);
 			count++;
 		}
 		let parentElement = document.querySelector(parent);
 		let childDivs = parentElement.querySelectorAll("div");
 		let childDivColor = childDivs[0].style.backgroundColor;
+		let iterator = 0;
 		stepArrays.forEach((array, index) => {
 			setTimeout(() => {
+				let sizes = subArraySizes(array);
+				let indexList = lightUpIndices(sizes);
+				let transposedIndexList = transpose(indexList);
+				transposedIndexList.forEach((list) => {
+					iterator++;
+					setTimeout(() => {
+						list.forEach((e, index) => {
+							if (e) {
+								{
+									childDivs[e].style.backgroundColor = "red";
+								}
+							}
+						});
+					}, 4 * iterator);
+
+					setTimeout(() => {
+						clearChildDivColor();
+					}, 5 * iterator);
+				});
+
 				styleNestedDivs(parent, array.flat(Infinity));
-			}, 900 * index);
+			}, 1200 * index);
 		});
 
 		return copy1;
 	}
 	let arr = [...array];
 	let sorted = iterativeMergeSort(parent, arr);
-
 	return sorted;
 }

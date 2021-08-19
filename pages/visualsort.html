@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisualSort</title>
-    <link rel="stylesheet" href="./visualsortstyles/style.css">
-    <script type="module" src="./visualJs/main.js"></script>
-</head>
-<body>
-    <div class="selector">
-        <button id="randomize" onclick='location.reload()'>Generate New Array</button>
-        <button id="bubbleButton">Bubblesort</button>
-        <button id="selectionButton">Selectionsort</button>
-        <button id="mergeSort">Mergesort</button>
-    </div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>VisualSort</title>
+		<link rel="stylesheet" href="./visualsortstyles/style.css" />
+		<script type="module" src="./visualJs/main.js"></script>
+	</head>
+	<body>
+		<div class="selector">
+			<button class="sort" id="bubbleButton">Bubblesort</button>
+			<button class="sort" id="selectionButton">Selectionsort</button>
+			<button class="sort" id="insertionButton">Insertionsort</button>
+			<button class="sort" id="mergeSort">Mergesort</button>
+		</div>
 
-    <div class="container">
-        <div class="div__container">
-
-        </div>
-    </div>
-
-</body>
+		<div class="container">
+			<div class="div__container"></div>
+		</div>
+		<div class="newArr">
+			<label for="arraysize"> Set Array Size: </label>
+			<div class="flex">
+				10 <input id="arraysize" type="range" min="10" max="200" /> 200
+			</div>
+		</div>
+	</body>
 </html>

@@ -8,7 +8,6 @@ export function bubbleSort(parent, array) {
 	for (let i = 0; i < arr.length; i++) {
 		for (let j = 0; j < arr.length - i - 1; j++) {
 			count++;
-
 			setTimeout(() => {
 				childDivs[j].style.backgroundColor = "rgb(221, 120, 120)";
 				childDivs[j + 1].style.backgroundColor = "rgb(221, 120, 120)";
@@ -26,7 +25,7 @@ export function bubbleSort(parent, array) {
 					childDivs[j].innerText = childDivs[j + 1].innerText;
 					childDivs[j + 1].innerText = tempText;
 				}
-			}, 3 * count);
+			}, 4 * count);
 			setTimeout(() => {
 				childDivs.forEach((element) => {
 					element.style.backgroundColor = childDivColor;

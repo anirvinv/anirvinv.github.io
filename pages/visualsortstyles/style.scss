@@ -1,19 +1,39 @@
 @import "variables";
 @import "selector";
 
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap");
+
+body,
+* {
+	font-family: "Fira Code", monospace;
+}
 .container {
 	.div__container {
-		height: 100vh;
+		margin-top: 20px;
+		height: 500px;
 		width: 100vw;
 		display: flex;
 		justify-content: center;
 		div {
-			background-color: rgb(157, 207, 178);
+			background-color: rgb(136, 152, 226);
 			margin: 0px;
 			text-align: center;
 			color: black;
-			border-radius: 5px;
-			// border: 1px solid rgb(221, 120, 120);
+			border-radius: 2px;
 		}
 	}
+}
+.newArr {
+	margin-top: 10px;
+	display: flex;
+	justify-content: center;
+	div {
+		font-size: 13px;
+		margin-left: 20px;
+	}
+}
+
+.flex {
+	display: flex;
+	align-items: center;
 }
