@@ -16,6 +16,12 @@ export function selectionSort(parent, array) {
 					min = arr[j];
 					minIndex = j;
 				}
+				childDivs[j].style.backgroundColor = "rgb(221,120,120)";
+				setTimeout(() => {
+					childDivs.forEach((element) => {
+						element.style.backgroundColor = childDivColor;
+					});
+				}, 150 * count);
 			}
 			let temp = arr[i];
 			arr[i] = arr[minIndex];

@@ -1,206 +1,77 @@
-@import 'variables';
-@import 'globals';
-
-html, body{
-    padding: 0;
-    margin: 0;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;700&display=swap");
+img {
+	display: none;
 }
 
-*{
-    margin: 0px;
-    box-sizing: border-box;
+* {
+	box-sizing: border-box;
 }
 
-.header{
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    background: linear-gradient(90deg, rgb(82, 128, 255) 20%, rgb(153, 123, 235));
-    text-align: center;
-    &__introduction{
-        color: white;
-        padding: 10%;
-        h1{
-            margin: auto;
-            width: fit-content;
-            font-size: 400%;
-            text-shadow: 2px 5px 5px rgb(28, 14, 160);
-            margin-bottom: 70px;            
-        }
-        h2{
-            height: fit-content;
-            width: fit-content;
-            font-weight: normal;
-            text-shadow: 2px 2px 5px rgb(28, 14, 160);
-            margin: auto;
-        }
-    
-    }
-    ol{
-        li{
-            padding: 0.3rem;
-        }
-        ul{
-            li{
-                margin-left: 1rem;
-                padding: 2px;
-            }
-        }
-    }
-    svg{
-        position: absolute;
-        bottom: 0%;
-        left: 0%;
-        fill: white;
-    }
+html,
+body {
+	margin: 0px;
+	overflow-x: hidden;
+}
+* {
+	font-family: "Open Sans", sans-serif;
+}
+.header {
+	.header__introduction {
+		$headerbackground: rgb(123, 113, 255);
+		position: relative;
+		background: linear-gradient(180deg, $headerbackground 50%, white 50%);
+		height: 100vh;
+		display: flex;
+		h1 {
+			padding: 30px 0 30px;
+			background-color: white;
+			text-align: center;
+			width: fit-content;
+			margin: auto;
+			border: 5px solid $headerbackground;
+			color: $headerbackground;
+			border-radius: 20px;
+			font-size: 25px;
+		}
+		h2 {
+			display: none;
+		}
+	}
 }
 
-.whypython{
-    width: 100%;
-    height: 80vh;
-    padding-left: 10%;
-    h2{
-        margin-bottom: 5%;
-        width: fit-content;
-        color: rgb(107, 107, 107);
-        font-size: 50px;
-    }
-    ul{
-        font-size: 25px;
-        width: fit-content;     
-        li {
-            margin-bottom: 30px;
-        }
-    }
+.whypython {
+	padding: 20px;
+	height: 100vh;
+	ul {
+		list-style: none;
+		// background-color: red;
+		width: fit-content;
+		margin: auto;
+	}
+
+	ul li:before {
+		color: rgb(33, 218, 33);
+		content: "✓ ";
+		font-weight: 800;
+		// font-size: 15px;
+	}
+	li {
+		margin-top: 60px;
+	}
+	h2 {
+		margin: auto;
+		width: fit-content;
+		text-align: center;
+	}
 }
 
-
-.steve-jobs{
-    display: flex;
-    align-items: center;
-    padding-left: 10%;
-    font-size: 30px;
-    // background: red;
-    height: 60vh;
-    width: 100%;
-    background-color: rgb(226, 242, 255);
-    border-bottom: 4px solid gray;
-    border-top: 4px solid gray;
-    text-indent: -0.3em;
+@media screen and (min-width: 900px) {
+	.header {
+		.header__introduction {
+			h1 {
+				padding: 30px;
+				border-radius: 20px;
+			}
+		}
+	}
 }
-
-.classoutline{
-    position: relative;
-    margin-bottom: 50px;
-    div{
-        padding: 10px;
-        height: 100%;
-        // padding: 10px;
-        // position: absolute;
-        margin: auto;
-        width: 50%;
-        // background: cyan;
-        border: 4px solid gray;
-        border-radius: 100px;
-    }
-    width: 100%;
-    height: 100vh;
-    // padding: 10%;
-    h2{
-        margin: auto;
-        margin-bottom: 2%;
-        width: fit-content;
-        color: rgb(107, 107, 107);
-        font-size: 50px;
-    }
-    ol{
-        font-size: 20px;
-        width: fit-content;
-        margin: auto;
-        li {
-            margin-bottom: 30px;
-        }
-        ul{
-            font-size: 15px;
-            margin-left: 10%;
-            li :not(:last-child){
-                margin-bottom: 20px;
-            }
-        }
-    }
-}
-
-.whyme{
-    .flex{
-        width: 100%;
-        margin: auto;
-        display: flex;
-        align-items: center;
-    }
-    width: 100%;
-    height: 90vh;
-    h2{
-        margin: auto;
-        margin-bottom: 2%;
-        width: fit-content;
-        color: rgb(107, 107, 107);
-        font-size: 50px;
-    }
-    img{
-        height: 430px;
-        border: 12px solid black;
-        // margin: 20px;
-    }
-    .about{
-        border: 2px solid gray;
-        padding: 40px;
-        width: 500px;
-        height: 430px; 
-    }
-}
-
-.flex{
-    display: flex;
-    align-items: flex-start;
-}
-
-
-@media screen and (max-width: 800px) {
-    html,body{
-        overflow-x: hidden;
-    }
-    .flex{
-        display: block;
-        margin-bottom: 30%;
-    }
-    .classoutline{
-        position: relative;
-        div{
-            height: fit-content;
-            // padding: 10px;
-            // position: absolute;
-            margin: auto;
-            width: 100%;
-            // background: cyan;
-            border: 4px solid gray;
-            border-radius: 0px;
-            padding: 30px;
-            li{
-                margin-bottom: 10px;
-            }
-        }
-        height: fit-content;
-    }
-
-    .whyme{
-        .about{
-            width: 100%;
-            height: fit-content;
-            // border: 0px;
-        }
-        img{
-            display: none;
-        }
-    }
-
-  }

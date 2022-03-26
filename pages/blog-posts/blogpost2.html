@@ -1,369 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/blogstyle.css" />
-    <link rel="stylesheet" href="styles/blog2style.css" />
-    <link rel="icon" href="../../images/updatedlogo.png">
-    <script src="../js/main.js"></script>
-    <script src="scripts/blog2script.js"></script>
-    <title>Forward Propogation in CNNs</title>
-  </head>
-  <body>
-    <div class="back" onclick="location.href='../blog.html' "><< Go Back</div>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles/blogstyle.css" />
+		<link rel="stylesheet" href="styles/blog2style.css" />
+		<link rel="icon" href="../../images/updatedlogo.png" />
+		<script src="../js/main.js"></script>
+		<script src="scripts/blog2script.js"></script>
+		<title>Forward Propogation in CNNs</title>
+	</head>
+	<body>
+		<div class="back" onclick="location.href='../blog.html' "><< Go Back</div>
 
-    <div class="parts" id="contents">
-      <h1>Forward Propogation in CNNs</h1>
-      <div id="intro">
-        <div>
-          <h3>CNN (not the news channel)</h3>
-          Convolutional Neural Networks. That's a mouthful to say isn't it?
-          People use them all the time, yet they are a total black box. Using
-          Tensorflow, Pytorch or another machine learning module to implement a
-          CNN is interesting, but learning the details can give deeper insights.
-          <h3>Simply put,</h3>
-          They are neural networks that take in 2 dimensional inputs, mainly
-          images. They have a variety of applications ranging from face
-          recognition in your smartphone to categorizing tumours as malignant or
-          benign. Recently, CNNs have even outperformed doctors in image
-          recognition.
-        </div>
-        <img src="images/Cnn.jpg" alt="Neural Net" />
-      </div>
+		<div class="parts" id="contents">
+			<h1>Forward Propogation in CNNs</h1>
+			<div id="intro">
+				<div>
+					<h3>CNN</h3>
+					Convolutional Neural Networks. That's a mouthful isn't it? People use
+					them all the time, yet they are a total black box. Using Tensorflow,
+					Pytorch or another machine learning module to implement a CNN is
+					interesting, but learning the details can give deeper insights.
+					<h3>Simply put,</h3>
+					They are neural networks that take in 2 dimensional inputs, mainly
+					images. They have a variety of applications ranging from face
+					recognition in your smartphone to categorizing tumours as malignant or
+					benign. Recently, CNNs have even outperformed doctors in image
+					recognition.
+				</div>
+				<img src="images/Cnn.jpg" alt="Neural Net" />
+			</div>
 
-      <div class="parts">
-        <h3>It all starts at Image Processing</h3>
+			<div class="parts">
+				<h3>It all starts at Image Processing</h3>
 
-        Images can be treated as two dimensional inputs. When we are dealing
-        with grayscale images at least. So, if we have a grayscale image, we can
-        directly convert it into a <em>n x m</em> matrix using the pixel
-        values(either 0 or 1) where n is the number of rows and m is the number
-        of columns. In other words, the image is ‘n’ high and ‘m’ wide. Image
-        processing is pretty cool.
+				Images can be treated as two dimensional inputs. When we are dealing
+				with grayscale images at least. So, if we have a grayscale image, we can
+				directly convert it into a <em>n x m</em> matrix using the pixel
+				values(either 0 or 1) where n is the number of rows and m is the number
+				of columns. In other words, the image is ‘n’ high and ‘m’ wide. Image
+				processing is pretty cool.
 
-        <h4 style="color: red">Color</h4>
-        Hey wait..what about colored images? Well, this is where things get
-        messy. You have to have three “channels” as they call it. One for red,
-        one for green, and one for blue. If you’ve ever done CSS styling, when
-        you say ‘background-color: rgb(128,0,128)”, you are changing the
-        background color to purple using three values for red, green, and blue.
-        Same concept with images, except that you have multiple colors on the
-        same image so you have a matrix for each channel.
-      </div>
+				<h4 style="color: red">Color</h4>
+				Hey wait..what about colored images? Well, this is where things get
+				messy. You have to have three “channels” as they call it. One for red,
+				one for green, and one for blue. If you’ve ever done CSS styling, when
+				you say ‘background-color: rgb(128,0,128)”, you are changing the
+				background color to purple using three values for red, green, and blue.
+				Same concept with images, except that you have multiple colors on the
+				same image so you have a matrix for each channel.
+			</div>
 
-      <div class="parts">
-        <h3>Convolution</h3>
-        Okay..how do we forward propagate these matrices? Let’s start with
-        grayscale images. Say we choose a 5 x 5 image. In order to forward
-        propagate this image, we first use a process called Convolution.
-        Convolving an image involves taking a filter, and running it across the
-        image. What does that mean? Try using the animation below by clicking
-        the "Convolve" button: <br />
-        <div id="button">
-          <button>Convolve</button>
-        </div>
-        <br />
-        <div id="convolve">
-          <div>
-            <h5>Image</h5>
-            <table id="image">
-              <tr id="row1">
-                <td class="imageCells" id="11">1</td>
-                <td class="imageCells" id="12">0</td>
-                <td class="imageCells" id="13">1</td>
-                <td class="imageCells" id="14">1</td>
-                <td class="imageCells" id="15">1</td>
-              </tr>
-              <tr id="row1">
-                <td class="imageCells" id="21">1</td>
-                <td class="imageCells" id="22">1</td>
-                <td class="imageCells" id="23">0</td>
-                <td class="imageCells" id="24">1</td>
-                <td class="imageCells" id="25">0</td>
-              </tr>
-              <tr id="row1">
-                <td class="imageCells" id="31">1</td>
-                <td class="imageCells" id="32">1</td>
-                <td class="imageCells" id="33">0</td>
-                <td class="imageCells" id="34">0</td>
-                <td class="imageCells" id="35">0</td>
-              </tr>
-              <tr id="row1">
-                <td class="imageCells" id="41">0</td>
-                <td class="imageCells" id="42">1</td>
-                <td class="imageCells" id="43">0</td>
-                <td class="imageCells" id="44">0</td>
-                <td class="imageCells" id="45">1</td>
-              </tr>
-              <tr id="row1">
-                <td class="imageCells" id="51">1</td>
-                <td class="imageCells" id="52">1</td>
-                <td class="imageCells" id="53">0</td>
-                <td class="imageCells" id="54">0</td>
-                <td class="imageCells" id="55">1</td>
-              </tr>
-            </table>
-          </div>
-          <h5>Filter</h5>
+			<div class="parts">
+				<h3>Convolution</h3>
+				Okay..how do we forward propagate these matrices? Let’s start with
+				grayscale images. Say we choose a 5 x 5 image. In order to forward
+				propagate this image, we first use a process called Convolution.
+				Convolving an image involves taking a filter, and running it across the
+				image. What does that mean? Try using the animation below by clicking
+				the "Convolve" button: <br />
+				<div id="button">
+					<button>Convolve</button>
+				</div>
+				<br />
+				<div id="convolve">
+					<div>
+						<h5>Image</h5>
+						<table id="image">
+							<tr id="row1">
+								<td class="imageCells" id="11">1</td>
+								<td class="imageCells" id="12">0</td>
+								<td class="imageCells" id="13">1</td>
+								<td class="imageCells" id="14">1</td>
+								<td class="imageCells" id="15">1</td>
+							</tr>
+							<tr id="row1">
+								<td class="imageCells" id="21">1</td>
+								<td class="imageCells" id="22">1</td>
+								<td class="imageCells" id="23">0</td>
+								<td class="imageCells" id="24">1</td>
+								<td class="imageCells" id="25">0</td>
+							</tr>
+							<tr id="row1">
+								<td class="imageCells" id="31">1</td>
+								<td class="imageCells" id="32">1</td>
+								<td class="imageCells" id="33">0</td>
+								<td class="imageCells" id="34">0</td>
+								<td class="imageCells" id="35">0</td>
+							</tr>
+							<tr id="row1">
+								<td class="imageCells" id="41">0</td>
+								<td class="imageCells" id="42">1</td>
+								<td class="imageCells" id="43">0</td>
+								<td class="imageCells" id="44">0</td>
+								<td class="imageCells" id="45">1</td>
+							</tr>
+							<tr id="row1">
+								<td class="imageCells" id="51">1</td>
+								<td class="imageCells" id="52">1</td>
+								<td class="imageCells" id="53">0</td>
+								<td class="imageCells" id="54">0</td>
+								<td class="imageCells" id="55">1</td>
+							</tr>
+						</table>
+					</div>
+					<h5>Filter</h5>
 
-          <table id="filter">
-            <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>0</td>
-              <td>0</td>
-              <td>0</td>
-            </tr>
-            <tr>
-              <td>1</td>
-              <td>1</td>
-              <td>1</td>
-            </tr>
-          </table>
-          <table id="featuremap">
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </table>
-        </div>
-        If you didn’t catch what’s happening, its element wise multiplication!
-        For example, to get the first box of the result we take the sum:
-        <div id="firstbox" class="code">
-          (1,0,1)*(1,1,1) + (1,1,0) * (0,0,0) + (1,1,0)*(1,1,1)
-        </div>
-        So, every element in the filter multiplied by the corresponding element
-        in the image. You repeat this process with every shift of the filter and
-        you have what's called your "feature map". The general formula for
-        finding the dimensions of the feature map is:
-        <div class="code">m x m ** n x n ---> (m - n + 1) x (m - n + 1)</div>
-        <br />
-        where 'm x m' are the image dimensions, 'n x n' are the filter
-        dimensions and ' ** ' represents the convolution operation.
-      </div>
-      <div id="multichannel" class="parts">
-        <h3>Multiple Channels</h3>
-        When we have an RGB image, we have to use 3 filters, one for each
-        channel.
-        <div>
-          <h5>Image</h5>
-          <table class="rgb-image">
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </table>
-          <h5>Filter</h5>
-          <table class="rgb-filter" class="rgb">
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </table>
-          <h5>Result</h5>
-          <table class="rgb-result">
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-          </table>
-        </div>
-        <br />
-        As you can see, the result of convolving a 3 x 3 x 3 filter on a 5 x 5 x
-        3 image, is still a <strong>3 x 3</strong> feature map. How? Well,
-        instead of shifting a square around the image like for grayscale images,
-        think about shifting a cubic filter across the 3-D matrix. Now, to get
-        the first square of the result, multiply every matching square and sum
-        them up. So, each square is the sum of 27 products.
-      </div>
-      <div id="multifilter" class="parts">
-        <h3>Multiple Filters</h3>
-        First of all, why do we need multiple filters? Why can't we just use a
-        single filter? Well, in order to detect a variety of features and to
-        capture the "atmoic" elements of the image in the first layer, we need
-        to use multiple filters.
-        <div>
-          <div class="vertical-align">
-            Image
-            <table class="rgb-image">
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-          </div>
-          <div class="vertical-align">
-            Filter 1
-            <table class="rgb-filter">
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-            Filter2
-            <table class="rgb-filter">
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-          </div>
-          <div class="vertical-align">
-            Result
-            <table id="multioutput" class="rgb-result">
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-              <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-              </tr>
-            </table>
-          </div>
-        </div>
-        <br />
-        So, each filter produces a single feature map. The yellow feature map is
-        the result of the first filter convolving, and the coral feature map is
-        the result of the second. Wait a minute...this is similar to how each
-        neuron in a neural net produces a single output. Coincidence? Turns out,
-        there are parallels between the architecture of CNNs and NNs. A filter
-        is analogous to a neuron so a layer of filters could be compared to a
-        layer of neurons.
-      </div>
+					<table id="filter">
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+						<tr>
+							<td>0</td>
+							<td>0</td>
+							<td>0</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td>1</td>
+							<td>1</td>
+						</tr>
+					</table>
+					<table id="featuremap">
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				If you didn’t catch what’s happening, its element wise multiplication!
+				For example, to get the first box of the result we take the sum:
+				<div id="firstbox" class="code">
+					(1,0,1)*(1,1,1) + (1,1,0) * (0,0,0) + (1,1,0)*(1,1,1)
+				</div>
+				So, every element in the filter multiplied by the corresponding element
+				in the image. You repeat this process with every shift of the filter and
+				you have what's called your "feature map". The general formula for
+				finding the dimensions of the feature map is:
+				<div class="code">m x m ** n x n ---> (m - n + 1) x (m - n + 1)</div>
+				<br />
+				where 'm x m' are the image dimensions, 'n x n' are the filter
+				dimensions and ' ** ' represents the convolution operation.
+			</div>
+			<div id="multichannel" class="parts">
+				<h3>Multiple Channels</h3>
+				When we have an RGB image, we have to use 3 filters, one for each
+				channel.
+				<div>
+					<h5>Image</h5>
+					<table class="rgb-image">
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+					<h5>Filter</h5>
+					<table class="rgb-filter" class="rgb">
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+					<h5>Result</h5>
+					<table class="rgb-result">
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td></td>
+							<td></td>
+						</tr>
+					</table>
+				</div>
+				<br />
+				As you can see, the result of convolving a 3 x 3 x 3 filter on a 5 x 5 x
+				3 image, is still a <strong>3 x 3</strong> feature map. How? Well,
+				instead of shifting a square around the image like for grayscale images,
+				think about shifting a cubic filter across the 3-D matrix. Now, to get
+				the first square of the result, multiply every matching square and sum
+				them up. So, each square is the sum of 27 products.
+			</div>
+			<div id="multifilter" class="parts">
+				<h3>Multiple Filters</h3>
+				First of all, why do we need multiple filters? Why can't we just use a
+				single filter? Well, in order to detect a variety of features and to
+				capture the "atmoic" elements of the image in the first layer, we need
+				to use multiple filters.
+				<div>
+					<div class="vertical-align">
+						Image
+						<table class="rgb-image">
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+					<div class="vertical-align">
+						Filter 1
+						<table class="rgb-filter">
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+						Filter2
+						<table class="rgb-filter">
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+					<div class="vertical-align">
+						Result
+						<table id="multioutput" class="rgb-result">
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<br />
+				So, each filter produces a single feature map. The yellow feature map is
+				the result of the first filter convolving, and the coral feature map is
+				the result of the second. Wait a minute...this is similar to how each
+				neuron in a neural net produces a single output. Coincidence? Turns out,
+				there are parallels between the architecture of CNNs and NNs. A filter
+				is analogous to a neuron so a layer of filters could be compared to a
+				layer of neurons.
+			</div>
 
-      <div id="pooling" class="parts">
-        <h3>Pooling..Coming Soon!</h3>
-      </div>
-    </div>
-  </body>
+			<div id="pooling" class="parts">
+				<h3>Pooling..Coming Soon!</h3>
+			</div>
+		</div>
+	</body>
 </html>

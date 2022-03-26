@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Invariant Binary Search</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="./styles/blog4style.css" />
+		<link rel="stylesheet" href="styles/blogstyle.css" />
+	</head>
+	<body>
+		<div class="parts" id="contents">
+			<h1>Invariant Binary Search</h1>
+			<div id="intro">
+				<div>
+					<h3>Guessing game</h3>
+					<p>
+						Say we were playing a guessing game where I pick an integer between
+						1 and 100 and you guess it. For each guess, I tell you if its
+						greater than, less than, or equal to my number. How would you play
+						this so that you minimize the number of guesses? The naive approach
+						would be to start from 1 and go upto 100. The worst case here is
+						that if I picked the number 100, you would need 100 guesses. Is
+						there a way to improve?
+					</p>
+				</div>
+				<img style="margin-left: 100px" src="./images/guessnum.png" alt="" />
+			</div>
+			<div class="parts">
+				<h3>Binary Search</h3>
+				<p>
+					Say that my number was 43. Using the naive linear search, you would
+					need 43 guesses. However, the "smarter" way to play this game would be
+					to start halfway at 50. Then, I'll tell you that my number is less
+					than 50 so you effectively eliminate half of the possible guesses.
+					Repeating this process, the search sequence would look like this: 
+                    <p style="text-align:center; color:blue;">50, 25, 37, 43</p>
+                    <p style="text-align:center">For our first guess, we knew our number had to be between <strong>1</strong> and a <strong>100</strong> so we guess halfway at 50. </p>
+                    <p style="text-align:center">For the second guess, we know it is less than 50, so it is between <strong>1</strong>and <strong>49</strong> so we guess 25.</p>
+                    <p style="text-align:center">Third guess: lower bound = <strong>26</strong>, upper bound = <strong>49</strong> so we guess 37. </p>
+                    <p style="text-align:center">Fourth guess: lower bound = <strong>38</strong>, upper bound = <strong>49</strong>, guess = 43.</p>
+                </p>
+			</div>
+		</div>
+	</body>
+</html>
