@@ -11,7 +11,6 @@ export function bubbleSort(parent, array) {
 			setTimeout(() => {
 				childDivs[j].style.backgroundColor = "rgb(221, 120, 120)";
 				childDivs[j + 1].style.backgroundColor = "rgb(221, 120, 120)";
-
 				if (arr[j] > arr[j + 1]) {
 					let temp = arr[j];
 					arr[j] = arr[j + 1];
