@@ -17,5 +17,16 @@ export function makeList(walls) {
 			}
 		}
 	}
+	// for (var i = 0; i <= 170; i++) {
+	// 	for (var j = 0; j < adjList[i].length - 1; j++) {
+	// 		var swap = Math.random() > 0.5;
+	// 		var index = Math.floor(Math.random() * adjList[i].length);
+	// 		if (swap) {
+	// 			var temp = adjList[i][j];
+	// 			adjList[i][j] = adjList[i][index];
+	// 			adjList[i][index] = temp;
+	// 		}
+	// 	}
+	// }
 	return adjList;
 }

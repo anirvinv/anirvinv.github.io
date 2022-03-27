@@ -7,13 +7,14 @@
 }
 
 .container {
-  height: 100vh;
+  height: 95vh;
   width: 100vw;
   text-align: center;
 }
 
 .container .instructions {
   margin: auto;
+  margin-bottom: 0;
   font-size: x-large;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -21,6 +22,21 @@
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.container .instructions #reset {
+  width: 60px;
+  height: 23px;
+  border: 1px solid #d6cdcd;
+  background-color: white;
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s;
+  border-radius: 2px;
+}
+
+.container .instructions #reset:hover {
+  cursor: pointer;
+  background: #dbd7d7;
 }
 
 .container .maze_container {
@@ -32,17 +48,12 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  margin-top: 10px;
 }
 
 .container .maze_container #maze {
   height: 80%;
   width: 60%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
 }
 
 .container .maze_container #maze .row {
@@ -59,10 +70,10 @@
   height: 100%;
   width: 6%;
   border: 1px solid #d6cdcd;
-  -webkit-transition: background-color 0.2s, -webkit-transform 0.2s;
-  transition: background-color 0.2s, -webkit-transform 0.2s;
-  transition: transform 0.2s, background-color 0.2s;
-  transition: transform 0.2s, background-color 0.2s, -webkit-transform 0.2s;
+  -webkit-transition: border 0.2s, background-color 0.2s, -webkit-transform 0.2s;
+  transition: border 0.2s, background-color 0.2s, -webkit-transform 0.2s;
+  transition: border 0.2s, transform 0.2s, background-color 0.2s;
+  transition: border 0.2s, transform 0.2s, background-color 0.2s, -webkit-transform 0.2s;
 }
 
 .container .maze_container #maze .row .box:hover {
