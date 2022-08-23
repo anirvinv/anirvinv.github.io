@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			bfs(adjList, boxes);
 		}
 		if (event.key == "s") {
-			dijkstra(adjList, boxes);
+			dijkstra(adjList, boxes, walls);
 		}
 	});
 });
