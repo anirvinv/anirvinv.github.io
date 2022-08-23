@@ -31,21 +31,18 @@ export function dijkstra(list, boxes, walls) {
 	}
 	var path = [170];
 	var k = 170;
-	while (k != -1) {
+	while (pred[k] != -1) {
 		path.push(pred[k]);
 		k = pred[k];
 	}
 	path.reverse();
-	path.forEach((e) => {
-		console.log(e);
-	});
-	// if (k == -1) {
-	// 	path.forEach((i) => {
-	// 		console.log(i);
-	// 	});
-	// 	alert("No path found");
-	// 	return;
-	// }
+	if (path[0] != 1) {
+		// path.forEach((i) => {
+		// 	console.log(i);
+		// });
+		alert("No path found");
+		return;
+	}
 
 	var idx = 0;
 	let y = setInterval(() => {
