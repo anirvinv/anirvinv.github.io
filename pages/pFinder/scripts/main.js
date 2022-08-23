@@ -1,6 +1,7 @@
 import { dfs } from "./depthFirst.js";
 import { bfs } from "./breadthFirst.js";
 import { makeList } from "./makeList.js";
+import { dijkstra } from "./dijkstra.js";
 document.addEventListener("DOMContentLoaded", () => {
 	var button = document.querySelector("#reset");
 	button.addEventListener("click", () => {
@@ -65,6 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 		if (event.key == "b") {
 			bfs(adjList, boxes);
+		}
+		if (event.key == "s") {
+			dijkstra(adjList, boxes);
 		}
 	});
 });

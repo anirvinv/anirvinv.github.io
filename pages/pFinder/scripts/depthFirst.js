@@ -46,6 +46,8 @@ export function dfs(list, boxes) {
 			alert("Path found!");
 		}
 	};
+	// setInterval(()=>{...}) runs the thing
+	// and then sets it equal to y
 	let y = setInterval(() => {
 		x();
 		if (stack.length == 0 || found) {
