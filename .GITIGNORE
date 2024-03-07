@@ -1,2 +1,4 @@
-*.map 
+*.map
 !pages/visualsortstyles/style.css.map
+
+**/*.map

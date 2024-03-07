@@ -16,10 +16,8 @@
     margin: 0;
   }
   body .code {
-    height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
-    width: -webkit-fit-content;
     width: -moz-fit-content;
     width: fit-content;
   }
@@ -84,7 +82,6 @@
     display: block;
   }
 }
-
 body {
   font-family: "Comfortaa", cursive;
   margin: 0px;
@@ -93,47 +90,37 @@ body {
 #contents h1 {
   text-align: center;
   margin: auto;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   padding: 20px;
-  border: 2px solid black;
-  text-shadow: 2px 2px 0px #c47603;
+  border: 2px solid rgb(0, 0, 0);
+  text-shadow: 2px 2px 0px rgb(196, 118, 3);
 }
-
 #contents h2 {
   margin-top: 100px;
   text-align: center;
 }
-
 #contents #intro {
   outline: 2px solid black;
   padding: 20px;
   margin: auto;
   margin-top: 20px;
   width: 90%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
 }
-
 #contents #intro div {
   width: 600px;
   line-height: 2.5;
-  color: black;
+  color: rgb(0, 0, 0);
 }
-
 #contents #intro div h3 {
   text-decoration: underline;
 }
-
 #contents #intro img {
   height: 400px;
-  -webkit-filter: brightness(1.1);
-          filter: brightness(1.1);
+  filter: brightness(1.1);
 }
-
 #contents .parts {
   border: 2px solid black;
   padding: 20px;
@@ -143,94 +130,73 @@ body {
   width: 90%;
   line-height: 2.5;
 }
-
 #contents .parts h3 {
   text-decoration: underline;
-  color: #1dc1c4;
+  color: rgb(29, 193, 196);
 }
-
 #contents .parts div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 #contents .parts div img {
   height: 200px;
   margin-left: 100px;
 }
-
 #contents .code {
   font-family: "Courier New", Courier, monospace;
-  background-color: #ffd1d1;
-  color: #250f0f;
+  background-color: rgb(255, 209, 209);
+  color: rgb(37, 15, 15);
   padding: 30px;
   border-radius: 30px;
-  -webkit-box-shadow: 10px 10px black;
-          box-shadow: 10px 10px black;
+  box-shadow: 10px 10px rgb(0, 0, 0);
 }
-
 #contents .math {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   font-family: "Courier New", Courier, monospace;
-  background-color: #d1e9ff;
-  color: #180a0a;
+  background-color: rgb(209, 233, 255);
+  color: rgb(24, 10, 10);
   padding: 30px;
   border-radius: 30px;
-  -webkit-box-shadow: 10px 10px black;
-          box-shadow: 10px 10px black;
+  box-shadow: 10px 10px rgb(0, 0, 0);
 }
-
 #contents #linearalg h3 {
   color: black;
 }
-
 #contents #linearalg img:hover {
   opacity: 0.5;
 }
-
 #contents #part1 {
   margin-top: 50px;
   width: 90%;
 }
-
 #contents #part1 img {
   height: 300px;
 }
-
 #contents #part2 #code-exp p {
   width: 60%;
   margin-left: 100px;
 }
-
 #contents #part2 #activation {
   margin: auto;
   width: 40%;
 }
-
 #contents #part2 #second-layer {
   margin: auto;
   width: 40%;
 }
-
 #contents #part3 p {
   width: 40%;
   margin-right: 100px;
 }
-
 #contents #part3 #propogate {
   width: 40%;
 }
-
 #contents #complete {
   margin: auto;
   width: 55%;
 }
 
 .back {
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
   font-size: 200%;
@@ -246,12 +212,10 @@ body {
   display: block;
   background-color: black;
   width: 0;
-  -webkit-transition: 300ms ease-in-out;
   transition: 300ms ease-in-out;
   height: 2px;
 }
 
 .back:hover::after {
   width: 100%;
-}
-/*# sourceMappingURL=blogstyle.css.map */
+}/*# sourceMappingURL=blogstyle.css.map */

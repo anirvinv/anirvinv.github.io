@@ -1,0 +1,43 @@
+@import "globals";
+@import "variables";
+@import "navbar2";
+
+.container{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.experience{
+    margin-top: 2rem;
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    flex-direction: column;
+    h1,h3{
+        text-align: center;
+        margin-bottom: 0.5rem;
+    }
+    ul{
+        padding: 1rem;
+    }
+    width: 35%;
+}
+
+@media screen and (max-width: 800px) {
+	html,
+	body {
+		margin: 0px;
+		padding: 20px;
+		overflow-x: hidden;
+	}
+	.container {
+		margin-top: 30px;
+		.experience{
+            width: 100%;
+        }
+	}
+}

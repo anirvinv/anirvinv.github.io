@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300&display=swap");
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
@@ -11,27 +10,20 @@ body {
 }
 
 .selector {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   margin-top: 40px;
   margin-bottom: 10px;
 }
-
 .selector button {
   background-color: white;
-  -webkit-transition: 0.3s;
   transition: 0.3s;
   border-radius: 4px;
   border: 1px solid black;
-  -webkit-box-shadow: 2px 2px 0px black;
-          box-shadow: 2px 2px 0px black;
+  box-shadow: 2px 2px 0px black;
 }
-
 .selector button:hover {
-  background-color: #c6cef3;
+  background-color: rgb(198, 206, 243);
   cursor: pointer;
 }
 
@@ -44,16 +36,11 @@ body,
   margin-top: 20px;
   height: 500px;
   width: 100vw;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 .container .div__container div {
-  background-color: #8898e2;
+  background-color: rgb(136, 152, 226);
   margin: 0px;
   text-align: center;
   color: black;
@@ -62,25 +49,15 @@ body,
 
 .newArr {
   margin-top: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
-
 .newArr div {
   font-size: 13px;
   margin-left: 20px;
 }
 
 .flex {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-/*# sourceMappingURL=style.css.map */
+  align-items: center;
+}/*# sourceMappingURL=style.css.map */

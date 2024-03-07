@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-family: Corbel;
 }
 
@@ -11,75 +10,53 @@
   width: 100vw;
   text-align: center;
 }
-
 .container .instructions {
   margin: auto;
   margin-bottom: 0;
   font-size: x-large;
-  height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
-
 .container .instructions #reset {
   width: 60px;
   height: 23px;
-  border: 1px solid #d6cdcd;
+  border: 1px solid rgb(214, 205, 205);
   background-color: white;
-  -webkit-transition: background-color 0.2s;
   transition: background-color 0.2s;
   border-radius: 2px;
 }
-
 .container .instructions #reset:hover {
   cursor: pointer;
-  background: #dbd7d7;
+  background: rgb(219, 215, 215);
 }
-
 .container .maze_container {
   height: 95%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin-top: 10px;
 }
-
 .container .maze_container #maze {
   height: 80%;
   width: 60%;
 }
-
 .container .maze_container #maze .row {
   height: 10%;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 .container .maze_container #maze .row .box {
   background-color: white;
   border-radius: 2px;
   height: 100%;
   width: 6%;
-  border: 1px solid #d6cdcd;
-  -webkit-transition: border 0.2s, background-color 0.2s, -webkit-transform 0.2s;
-  transition: border 0.2s, background-color 0.2s, -webkit-transform 0.2s;
+  border: 1px solid rgb(214, 205, 205);
   transition: border 0.2s, transform 0.2s, background-color 0.2s;
-  transition: border 0.2s, transform 0.2s, background-color 0.2s, -webkit-transform 0.2s;
 }
-
 .container .maze_container #maze .row .box:hover {
-  -webkit-transform: scale(1.15);
-          transform: scale(1.15);
-  background-color: #b9fff9;
+  transform: scale(1.15);
+  background-color: rgb(185, 255, 249);
   cursor: pointer;
-}
-/*# sourceMappingURL=main.css.map */
+}/*# sourceMappingURL=main.css.map */
