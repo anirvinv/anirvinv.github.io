@@ -1,90 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-		<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-		<link rel="icon" href="../images/updatedlogo.png" />
-		<link rel="stylesheet" href="../css/experience.css" />
-		<title>Blogs</title>
-	</head>
-	<body>
-		<div class="header flex">
-			<h1 class="title">Experience</h1>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="icon" href="../images/updatedlogo.png" />
+    <link rel="stylesheet" href="../css/experience.css" />
+    <title>Expereince</title>
+  </head>
+  <body>
+    <div class="header flex">
+      <h1 class="title">Experience</h1>
 
-			<div class="navbar">
-				<a href="../index.html">Home</a>
-                <a href="">Experience</a>
-				<a href="projects.html">Projects</a>
-				<a href="contact.html">Contact</a>
-				<a href="blog.html">Blog</a>
-			</div>
-		</div>
-        <div class="container">
-            <div data-aos="fade-up" class="container">
-                <div class="experience">
-                    <h2>SWE Intern @ MongoDB</h2>
-                    <em>June - Aug 2024</em>
-                </div>
-                <div class="experience">
-                    <h2>SWE @ Rutgers Open System Solutions</h2>
-                    <em>Jan 2023 - Present</em>
-                    <h4><a href="https://go.rutgers.edu">go.rutgers.edu</a> (Rutgers URL shortener)</h4>
-                    <ul>
-                        <li>Used MongoDB aggregate piplines with text search to improve searching for links </li>
-                        <li>Added functionality to allow the application to provide tracking pixels. Used over 100,000 times</li>
-                    </ul>
-
-                    <h4>Outlook Extension</h4>
-                    <ul>
-                        <li>Created an extension for Microsoft Outlook to insert tracking pixels into emails for Rutgers staff and faculty</li>
-                        <li>Interacts with Outlook Async API to provide a seamless UX</li>
-                    </ul>
-
-                    
-                    <h4>MeetMe (Rutgers calendar app)</h4>
-                    <ul>
-                        <li>Used Websockets and MongoDB changestreams to provide real time updates on the client-side in shared calendars</li>
-                        <li>Refactored frontend code to reduce bundle size by thousands of lines</li>
-                        <li>Provided functionality to account for daylight savings in every timezone</li>
-                        <li>Wrote algorithms to compress data in requests for overlapping intervals</li>
-                    </ul>
-
-                    <h4>Google Calendar Scripts</h4>
-                    <ul>
-                        <li>Wrote a script in Golang to automatically insert events into all students' google calendars under a domain</li>
-                        <li>Implemented exponential backoff to prevent getting rate-limited by google servers</li>
-                        <li>Used goroutines to send requests concurrently to the API</li>
-                    </ul>
-
-                </div>
-
-                <div class="experience">
-                    <h2>Backend Director, Frontend Engineer @ Hack4Impact</h2>
-                    <em>Oct 2022 - Present</em>
-
-                    <h4>MealsOnWheels</h4>
-                    <ul>    
-                        <li>Built admin pages for MealsOnWheels Volunteer Management Web App using React</li>
-                        <li>Used React Query to synchronize and update server state</li>
-                        <li>Used by over 100 volunteers</li>
-                    </ul>
-
-                    <h4>AniMealsOnWheels</h4>
-                    <ul>
-                        <li>Led a team of 5 backend engineers</li>
-                        <li>Built an API server using Express and MongoDB (deployed with Vercel and Atlas)</li>
-                        <li>Implemented One-time-passwords for effortless authentication of volunteers</li>
-                        <li>Communicated with client for continous feedback</li>
-                    </ul>
-                </div>
-            </div>    
+      <div class="navbar">
+        <a href="../index.html">Home</a>
+        <a href="">Experience</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+        <a href="blog.html">Blog</a>
+      </div>
+    </div>
+    <div class="container">
+      <div data-aos="fade-up" class="container">
+        <div class="experience">
+          <h2>SWE Intern @ MongoDB</h2>
+          <em>June - Aug 2024</em>
+          <ul>
+            <li>
+              Used JSP, React.js, and dependency injection with Guice to
+              contribute to MongoDB Atlas, the fully managed cloud database
+              service hosted on AWS, GCP and Azure
+            </li>
+            <li>
+              Created a full-stack solution for the SRE team to automate phased
+              rollouts of new OS package policies to 1/2 million+ data nodes in
+              the Atlas fleet using Java in the control-plane and Ruby Chef for
+              infrastructure automation
+            </li>
+            <li>
+              Automated OS image release workflow used to provision 1000+ new
+              nodes per hour, leveraging an S3 bucket for image storage and
+              retrieval
+            </li>
+            <li>
+              Utilized JUnit, Mockito, and Evergreen (an internal distributed
+              CI/CD platform) to write unit, integration, and E2E tests
+            </li>
+          </ul>
         </div>
-		
-		<script>
-			AOS.init();
-		</script>
-	</body>
+        <div class="experience">
+          <h2>SWE @ Rutgers Open System Solutions</h2>
+          <em>Jan 2023 - Present</em>
+          <h4>
+            <a href="https://go.rutgers.edu">go.rutgers.edu</a> (Rutgers URL
+            shortener)
+          </h4>
+          <ul>
+            <li>
+              Used MongoDB aggregate piplines with text search to improve
+              searching for links
+            </li>
+            <li>
+              Added functionality to allow the application to provide tracking
+              pixels. Used over 100,000 times
+            </li>
+          </ul>
+
+          <h4>Outlook Extension</h4>
+          <ul>
+            <li>
+              Created an extension for Microsoft Outlook to insert tracking
+              pixels into emails for Rutgers staff and faculty
+            </li>
+            <li>Interacts with Outlook Async API to provide a seamless UX</li>
+          </ul>
+
+          <h4>MeetMe (Rutgers calendar app)</h4>
+          <ul>
+            <li>
+              Used Websockets and MongoDB changestreams to provide real time
+              updates on the client-side in shared calendars
+            </li>
+            <li>
+              Refactored frontend code to reduce bundle size by thousands of
+              lines
+            </li>
+            <li>
+              Provided functionality to account for daylight savings in every
+              timezone
+            </li>
+            <li>
+              Wrote algorithms to compress data in requests for overlapping
+              intervals
+            </li>
+          </ul>
+
+          <h4>Google Calendar Scripts</h4>
+          <ul>
+            <li>
+              Wrote a script in Golang to automatically insert events into all
+              students' google calendars under a domain
+            </li>
+            <li>
+              Implemented exponential backoff to prevent getting rate-limited by
+              google servers
+            </li>
+            <li>
+              Used goroutines to send requests concurrently to the Google API
+            </li>
+          </ul>
+        </div>
+
+        <div class="experience">
+          <h2>Backend Director, Frontend Engineer @ Hack4Impact</h2>
+          <em>Oct 2022 - Present</em>
+
+          <h4>MealsOnWheels</h4>
+          <ul>
+            <li>
+              Built admin pages for MealsOnWheels Volunteer Management Web App
+              using React
+            </li>
+            <li>Used React Query to synchronize and update server state</li>
+            <li>Used by over 100 volunteers</li>
+          </ul>
+
+          <h4>AniMealsOnWheels</h4>
+          <ul>
+            <li>Led a team of 5 backend engineers</li>
+            <li>
+              Built an API server using Express and MongoDB (deployed with
+              Vercel and Atlas)
+            </li>
+            <li>
+              Implemented One-time-passwords for effortless authentication of
+              volunteers
+            </li>
+            <li>Communicated with client for continous feedback</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      AOS.init();
+    </script>
+  </body>
 </html>
