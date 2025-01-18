@@ -75,10 +75,19 @@
       allowed to execute at a time.
     </p>
     <h2>What is a Distribtued Lock?</h2>
-    A distributed lock is like a mutex, but it synchronizes access to resources
-    in a network rather than within a machine. When there are several clients
-    requesting to access resources like in the sneaker example, locking can
-    enforce that only one of them gets it. <br />
+    <p>
+      A distributed lock is like a mutex, but it synchronizes access to
+      resources in a network rather than within a machine. When there are
+      several clients requesting to access a resource, locking can enforce that
+      only one of them gets it.
+    </p>
+
+    <p style="color: red; font-size: small">
+      <strong
+        >*usually there's middleware between the client and other services, but
+        I omitted it for simplicity</strong
+      >
+    </p>
     <img src="images/locks1.png" alt="" style="width: 100%" />
     <h3>Naive Approach</h3>
     <p>
@@ -121,7 +130,8 @@
     </p>
     <p>
       To lock a driver, a client can <strong>sequentially</strong> send a
-      <code>SET client_id driver_id NX</code> command to each Redis node.
+      <code>SET client_id driver_id NX</code> command to each Redis node and
+      keep a tally of how many of these execute successfully.
     </p>
     <img src="images/locks3.png" alt="" width="100%" />
     <p>
@@ -136,7 +146,7 @@
     </p>
     <img src="images/locks4.png" alt="" width="100%" />
     <ul>
-      <li>Record the current time, T</li>
+      <li>Record the current time, T (= 0 in the above picture)</li>
       <li>Use an auto-release time for the key (eg. 10 seconds)</li>
       <li>Timeout when waiting on a specific node's response (eg. 50ms)</li>
       <li>
@@ -151,7 +161,7 @@
       the Redis node).
     </p>
     <p>
-      This solves the single point of failure problem. If we have 5 nodes, upto
+      This solves the single point of failure problem. If we have 5 nodes, up to
       2 of them can fail and our app will still work.
     </p>
     <h3>References</h3>
