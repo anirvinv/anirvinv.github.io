@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Distributed Locks</title>
+    <link rel="icon" href="../../images/updatedlogo.png" />
+    <style>
+      body {
+        margin: 40px auto;
+        max-width: 650px;
+        line-height: 1.6;
+        font-size: 18px;
+        color: #444;
+        padding: 0 10px;
+      }
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+      }
+      code,
+      pre {
+        padding: 0;
+        margin: 0;
+        line-height: 1.2;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 onclick="location.href='../blog.html' " style="cursor: pointer">
+      ← Go Back
+    </h3>
+    <h1>Distributed Locks</h1>
+    <p>
+      There are 10K concurrent users on an online store, and they all try to buy
+      the last sneaker in stock at the exact same time. How do you make sure
+      that only one person gets it?
+    </p>
+    <h2>Intro to Locks</h2>
+    <p>
+      If you know what mutexes are, feel free to skip this section. Say you have
+      10K threads running the following function:
+    </p>
+    <pre>
+    <code> 
+    int counter = 0;
+    void *func(void *arg){
+        counter += 1;   
+    }
+    </code>
+    </pre>
+    <p>
+      The expected value of counter is 10K, but this is not guaranteed.
+      <code>counter += 1</code>
+      does three things: reads the value of counter, adds 1 to it, and sets
+      counter to it. If two threads read the same value of counter before
+      incrementing it, it will effectively only increase by 1. We can use locks
+      to guarantee that every thread increments counter exactly once:
+    </p>
+    <pre>
+        <code>
+    int counter = 0;
+    pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+    void *func(void *arg){
+        pthread_mutex_lock(&mutex);
+        counter += 1;   
+        pthread_mutex_unlock(&mutex);
+    }
+        </code>
+      </pre>
+    <p>
+      The code between the <code>pthread_mutex_lock/unlock()</code> is called
+      the critical section, which only one thread that "acquires the lock" is
+      allowed to execute at a time.
+    </p>
+    <h2>What is a Distribtued Lock?</h2>
+    A distributed lock is like a mutex, but it synchronizes access to resources
+    in a network rather than within a machine. When there are several clients
+    requesting to access resources like in the sneaker example, locking can
+    enforce that only one of them gets it. <br />
+    <img src="images/locks1.png" alt="" style="width: 100%" />
+    <h3>Naive Approach</h3>
+    <p>
+      We can use Redis to achieve a naive (but decent) implementation. To make
+      it clear, I will use the example of booking rides on an app (Uber). A
+      driver can only ride with one person at a time, so we must "lock" a driver
+      when the client books a ride with them.
+    </p>
+    <p>To lock a driver, we could use the following command:</p>
+    <code>SET &lt;driver_id&gt; &lt;client_id&gt; NX</code>
+    <p>
+      In plain english, this command tells Redis to set the (driver_id,
+      client_id) key-value pair only if the key does not already exist (hence
+      the NX flag). If this command fails to set the key, it indicates that the
+      driver is locked by some other client.
+    </p>
+    <img src="images/locks2.png" alt="" style="width: 100%" />
+    <p>
+      The client can delete the <code>&lt;driver_id&gt;</code> key from Redis
+      once their ride is done.
+    </p>
+    <p>
+      Also if you are wondering, all single commands in Redis are <i>atomic</i>.
+      For us, this means that it will execute the SET instructions one at a
+      time.
+    </p>
+
+    <h3>Problem?</h3>
+    <p>
+      This implementation is quite error-prone even disregarding security
+      issues, etc. A big problem with this approach is that the whole app stops
+      working when this redis instance fails. This is called a
+      <strong>single point of failure</strong>.
+    </p>
+    <h2>Redlock Algorithm</h2>
+    <p>
+      This algorithm uses an odd number of <strong>independent</strong> Redis
+      instances (no replication) to avoid a single point of failure. Here is my
+      simplified summary of the algorithm:
+    </p>
+    <p>
+      To lock a driver, a client can <strong>sequentially</strong> send a
+      <code>SET client_id driver_id NX</code> command to each Redis node.
+    </p>
+    <img src="images/locks3.png" alt="" width="100%" />
+    <p>
+      If a majority of the nodes successfully execute the command, then the
+      client has aquired the lock for that resource. After the client has
+      finished, it has to release the resource by deleting the driver_id in
+      <strong>all</strong> redis nodes.
+    </p>
+    <p>
+      To prevent live/deadlocks and buggy clients from hogging locks, we can add
+      a few more steps to the algorithm.
+    </p>
+    <img src="images/locks4.png" alt="" width="100%" />
+    <ul>
+      <li>Record the current time, T</li>
+      <li>Use an auto-release time for the key (eg. 10 seconds)</li>
+      <li>Timeout when waiting on a specific node's response (eg. 50ms)</li>
+      <li>
+        After everything, make sure that the current time (Now) - T &lt;
+        auto-release time (so that no key has expired)
+      </li>
+    </ul>
+    <p>
+      The client now has some time to use the resource before the lock expires
+      called the validity time. This can be calculated by subtracting elapsed
+      time from the initial validity time (10s from the first request is sent to
+      the Redis node).
+    </p>
+    <p>
+      This solves the single point of failure problem. If we have 5 nodes, upto
+      2 of them can fail and our app will still work.
+    </p>
+    <h3>References</h3>
+    <ul>
+      <li>
+        <a
+          href="https://redis.io/docs/latest/develop/use/patterns/distributed-locks/"
+          >Redis docs</a
+        >
+      </li>
+    </ul>
+  </body>
+</html>
